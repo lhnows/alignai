@@ -47,4 +47,5 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}          # 必须
           working-directory: "site"                         # 必须（默认值）
           vercel-args: "--prod"                             # 推荐
+          vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} # 可选
