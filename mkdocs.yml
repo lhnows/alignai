@@ -16,6 +16,7 @@ nav:
       - 倾斜摄影:
         - 单目重建: "research/倾斜摄影单目重建.md"
       - colmap集成SuperPoint: "research/COLMAP替换SuperPoint和SuperGlue_.md"
+      - AI医学综述: "research/AI医学辅助诊断算法综述_.md"
       - 口腔医学:
         - 专家共识: "research/口腔医学/专家共识.md"
         - IEEE口腔AI论文: "research/口腔医学/IEEE口腔AI论文.md"
