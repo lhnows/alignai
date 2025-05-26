@@ -41,3 +41,10 @@ jobs:
 
           # 递归上传整个 site 目录到 OSS
           ossutil cp -r site/ oss://$BUCKET/ --update
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v30
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}          # 必须
+          working-directory: "site"                         # 必须（默认值）
+          vercel-args: "--prod"                             # 推荐
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} # 可选
