@@ -41,11 +41,16 @@ jobs:
 
           # 递归上传整个 site 目录到 OSS
           ossutil cp -r site/ oss://$BUCKET/ --update
+          
+      # 部署到 Vercel
       - name: Install Vercel CLI
-        run: npm install -g vercel
-      
-      - name: Deploy
-        run: vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --cwd site --scope ${{ secrets.VERCEL_ORG_ID }} $([ -n "${{ secrets.VERCEL_PROJECT_ID }}" ] && echo "--project ${{ secrets.VERCEL_PROJECT_ID }}")
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: npm install --global vercel@latest
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25 # 或者最新的版本
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # 必需
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}   # 必需
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} # 必需
+          vercel-args: '--prod' # 传递给 vercel deploy 的额外参数，例如 --prod 表示部署到生产环境
+          working-directory: ./site # 如果你的项目在子目录
