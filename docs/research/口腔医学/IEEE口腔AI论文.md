@@ -38,14 +38,15 @@
 
 ##  2024IEEE
 
-- [Tooth_Alignment_Network_Based_on_Landmark_Constraints_and_Hierarchical_Graph_Structure-dual.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Tooth_Alignment_Network_Based_on_Landmark_Constraints_and_Hierarchical_Graph_Structure-dual.pdf)
-- Automatic_3D_Teeth_Reconstruction_From_Five_Intra-Oral_Photos_Using_Parametric_Teeth_Model.pdf (上传失败)
+
+- [Automatic_3D_Teeth_Reconstruction_From_Five_Intra-Oral_Photos_Using_Parametric_Teeth_Model.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Automatic_3D_Teeth_Reconstruction_From_Five_Intra-Oral_Photos_Using_Parametric_Teeth_Model.pdf)
 - [NKUT_Dataset_and_Benchmark_for_Pediatric_Mandibular_Wisdom_Teeth_Segmentation.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/NKUT_Dataset_and_Benchmark_for_Pediatric_Mandibular_Wisdom_Teeth_Segmentation.pdf)
+
 - [A_Hybrid_Transfer_Learning_Approach_to_Teeth_Diagnosis_Using_Orthopantomogram_Radiographs.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/A_Hybrid_Transfer_Learning_Approach_to_Teeth_Diagnosis_Using_Orthopantomogram_Radiographs.pdf)
-- [Tooth_Alignment_Network_Based_on_Landmark_Constraints_and_Hierarchical_Graph_Structure-mono.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Tooth_Alignment_Network_Based_on_Landmark_Constraints_and_Hierarchical_Graph_Structure-mono.pdf)
-- [IEEE TRANSACTIONS ON BIOMEDICAL ENGINEERING, VOL. 59, NO. 4, APRIL 2012，Automatic_Teeth_Axes_Calculation_for_Well-Aligned_Teeth_Using_Cost_Profile_Analysis_Along_Teeth_Center_Arch.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/IEEE TRANSACTIONS ON BIOMEDICAL ENGINEERING, VOL. 59, NO. 4, APRIL 2012，Automatic_Teeth_Axes_Calculation_for_Well-Aligned_Teeth_Using_Cost_Profile_Analysis_Along_Teeth_Center_Arch.pdf)
+
+
+
 - [Empowering_Portable_Optoelectronics_With_Computer_Vision_for_Intraoral_Cavity_Detection.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Empowering_Portable_Optoelectronics_With_Computer_Vision_for_Intraoral_Cavity_Detection.pdf)
-- Deep_Learning_for_Mandibular_Canal_Segmentation_in_Digital_Dental_Radiographs_A_Systematic_Literature_Review.pdf (上传失败)
 - [Spatial_Prior-Guided_Bi-Directional_Cross-Attention_Transformers_for_Tooth_Instance_Segmentation.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Spatial_Prior-Guided_Bi-Directional_Cross-Attention_Transformers_for_Tooth_Instance_Segmentation.pdf)
 - [Detection_of_Tooth_Position_by_YOLOv4_and_Various_Dental_Problems_Based_on_CNN_With_Bitewing_Radiograph.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Detection_of_Tooth_Position_by_YOLOv4_and_Various_Dental_Problems_Based_on_CNN_With_Bitewing_Radiograph.pdf)
 - [Robotics_Application_in_Dentistry_A_Review.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Robotics_Application_in_Dentistry_A_Review.pdf)
