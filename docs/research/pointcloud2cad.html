@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点云到CAD转换：行业趋势与市场洞察</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 
+        Infographic Plan Summary:
+        1.  Title: 点云到CAD转换：行业趋势与市场洞察
+        2.  Introduction: What is Point Cloud to CAD? Why important? (Large text, key definitions)
+        3.  Core Workflow: Standard Workflow (HTML/CSS flowchart based on Report Section 3)
+        4.  Key Technologies: Traditional vs. Deep Learning (Comparison cards based on Report Table 2)
+        5.  Major Challenges: Hurdles in Conversion (Challenge cards with Unicode icons based on Report Table 3)
+        6.  Market Drivers & Future Outlook: AI, Digital Twins, Hardware (Line chart for Trend Momentum, cards for trends from Report Section 6)
+        7.  Open Source Ecosystem: Key Tools (Cards for PCL, CloudCompare, FreeCAD from Report Table 4)
+        8.  Conclusion: Summary & Future Outlook.
+
+        Visualization Choices & Justification (Confirming NO SVG, NO MERMAID JS):
+        -   Introductory Stats/Definitions: Large HTML text. Goal: Inform. Method: HTML. NO SVG.
+        -   Core Workflow: HTML/CSS based flowchart. Goal: Organize. Method: Tailwind CSS for layout, borders for connections. NO SVG, NO MERMAID JS.
+        -   Technology Comparison (Traditional vs. DL): Styled HTML cards. Goal: Compare. Method: HTML/Tailwind. NO SVG.
+        -   Major Challenges: Styled HTML cards with Unicode icons. Goal: Inform/Compare. Method: HTML/Tailwind. NO SVG.
+        -   Trend Momentum (Conceptual Line Chart): Chart.js Line Chart. Goal: Change. Method: Chart.js (Canvas). NO SVG.
+        -   Key Future Trends: Styled HTML cards. Goal: Inform. Method: HTML/Tailwind. NO SVG.
+        -   Open Source Tool Focus (Conceptual Donut Charts): Chart.js Donut Chart. Goal: Compare/Inform. Method: Chart.js (Canvas). NO SVG.
+        -   Overall layout: Tailwind CSS grid and flexbox.
+
+        Color Palette Chosen: Energetic & Playful (Conceptual Name)
+        -   Primary: #FF6B6B (Lively Coral)
+        -   Secondary: #4ECDC4 (Aqua Green)
+        -   Accent: #45B7D1 (Bright Sky Blue)
+        -   Neutral Dark: #1A535C (Dark Teal)
+        -   Neutral Light: #F7FFF7 (Off-White/Mint Cream)
+        -   Chart Colors: #FFD166 (Sunny Yellow), #06D6A0 (Emerald Green), #118AB2 (Cerulean Blue), #EF476F (Paradise Pink)
+
+        Confirmation:
+        -   NO SVG graphics are used. All visuals are HTML/CSS, Unicode characters, or Canvas-based charts (Chart.js).
+        -   NO Mermaid JS is used. Flowcharts/diagrams are implemented with HTML/CSS and Tailwind.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            background-color: #F7FFF7; /* Neutral Light */
+            color: #1A535C; /* Dark Teal */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Default max-width, can be overridden by Tailwind */
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px; /* Base height */
+            max-height: 400px; /* Max height */
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .section-title {
+            color: #1A535C; /* Dark Teal */
+            border-bottom: 3px solid #FF6B6B; /* Lively Coral */
+        }
+        .card {
+            background-color: white;
+            border-left: 5px solid #4ECDC4; /* Aqua Green */
+        }
+        .flowchart-step {
+            background-color: #4ECDC4; /* Aqua Green */
+            color: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+        .flowchart-step:hover {
+            transform: translateY(-5px);
+        }
+        .flowchart-arrow {
+            color: #45B7D1; /* Bright Sky Blue */
+            font-size: 2rem;
+            line-height: 1;
+        }
+        .stat-number {
+            color: #FF6B6B; /* Lively Coral */
+            font-weight: 700;
+        }
+        .comparison-card {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-top-width: 4px;
+        }
+        .challenge-card-icon {
+            font-size: 2.5rem;
+            color: #FF6B6B; /* Lively Coral */
+        }
+        .trend-card {
+            background-color: #45B7D1; /* Bright Sky Blue */
+            color: white;
+        }
+         .tool-card {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid #FFD166; /* Sunny Yellow */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-1A535C text-black py-8 shadow-lg">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold">点云到CAD转换</h1>
+            <p class="mt-4 text-xl md:text-2xl">行业趋势与市场洞察</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section id="introduction" class="mb-16">
+            <h2 class="text-3xl font-semibold mb-6 section-title pb-2">引言：点亮数字世界与物理世界的桥梁</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="text-lg mb-4">
+                        <strong>点云 (Point Clouds)</strong> 是三维空间中表示物体或环境表面特性的数据点集合，是多数三维扫描设备的原始输出。它们为我们提供了物理世界的数字快照。
+                    </p>
+                    <p class="text-lg mb-4">
+                        而<strong>计算机辅助设计 (CAD) 模型</strong> 则是结构化、可编辑的数字化表达，广泛应用于设计、工程和制造领域。
+                    </p>
+                    <p class="text-lg">
+                        点云到CAD的转换，不仅仅是格式的改变，更是将原始的、非结构化的几何采样数据，赋予设计意图、功能属性和参数化关系，弥合两者之间的“语义鸿沟”，对于逆向工程、竣工文档、智能制造等至关重要。
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="p-6 bg-white rounded-lg shadow-xl">
+                        <span class="text-6xl">🌉</span>
+                        <h3 class="text-2xl font-semibold mt-4 mb-2" style="color: #1A535C;">核心价值</h3>
+                        <p class="text-lg" style="color: #4ECDC4;">连接现实与数字，赋能创新与效率</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="workflow" class="mb-16">
+            <h2 class="text-3xl font-semibold mb-8 section-title pb-2">核心工作流程：从点云到CAD模型的演变</h2>
+            <p class="text-lg mb-8 text-center">点云到CAD的转换是一个多阶段的演进过程，每一步都至关重要，旨在将原始数据点转化为结构化的工程模型。</p>
+            <div class="flex flex-col md:flex-row justify-around items-center space-y-4 md:space-y-0 md:space-x-4">
+                <div class="flowchart-step md:w-1/6">1. 数据采集</div>
+                <div class="flowchart-arrow hidden md:block">&rarr;</div>
+                <div class="flowchart-arrow md:hidden">&darr;</div>
+                <div class="flowchart-step md:w-1/6">2. 预处理</div>
+                <div class="flowchart-arrow hidden md:block">&rarr;</div>
+                <div class="flowchart-arrow md:hidden">&darr;</div>
+                <div class="flowchart-step md:w-1/6">3. 分割与特征提取</div>
+                <div class="flowchart-arrow hidden md:block">&rarr;</div>
+                <div class="flowchart-arrow md:hidden">&darr;</div>
+                <div class="flowchart-step md:w-1/6">4. 曲面重建/拟合</div>
+                <div class="flowchart-arrow hidden md:block">&rarr;</div>
+                <div class="flowchart-arrow md:hidden">&darr;</div>
+                <div class="flowchart-step md:w-1/6">5. CAD模型生成</div>
+                <div class="flowchart-arrow hidden md:block">&rarr;</div>
+                <div class="flowchart-arrow md:hidden">&darr;</div>
+                <div class="flowchart-step md:w-1/6">6. 质量保证</div>
+            </div>
+            <p class="mt-6 text-md text-gray-600 text-center">注意：这是一个迭代过程，各阶段可能需要根据结果反馈进行调整和优化。</p>
+        </section>
+
+        <section id="technologies" class="mb-16">
+            <h2 class="text-3xl font-semibold mb-8 section-title pb-2">关键技术对比：传统与新兴方法的碰撞</h2>
+            <p class="text-lg mb-8 text-center">点云到CAD的转换依赖于多种技术，从经典的几何算法到前沿的深度学习方法，各有千秋。</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="comparison-card rounded-lg shadow-lg p-6 border-t-FF6B6B">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: #1A535C;">传统几何算法</h3>
+                    <p class="mb-4">基于明确的几何原理和数学模型，如RANSAC、区域生长、霍夫变换、NURBS拟合等。</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong style="color: #06D6A0;">优点:</strong> 原理清晰，对特定形状鲁棒，可控性好，计算效率相对较高（特定算法）。</li>
+                        <li><strong style="color: #EF476F;">缺点:</strong> 对参数敏感，难以处理复杂或未知形状，对噪声和数据缺失敏感，自动化程度有限。</li>
+                    </ul>
+                </div>
+                <div class="comparison-card rounded-lg shadow-lg p-6 border-t-4ECDC4">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: #1A535C;">新兴深度学习方法</h3>
+                    <p class="mb-4">利用神经网络（如PointNet、Point2CAD、CAD-Recode）从数据中学习特征和关系。</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong style="color: #06D6A0;">优点:</strong> 能处理复杂场景，学习语义信息，对噪声有一定鲁棒性，自动化潜力巨大，能重建复杂自由曲面。</li>
+                        <li><strong style="color: #EF476F;">缺点:</strong> 需要大量标注数据，模型可解释性差（黑箱），训练成本高，生成模型的“CAD质量”和泛化能力仍是挑战。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenges" class="mb-16">
+            <h2 class="text-3xl font-semibold mb-8 section-title pb-2">主要挑战：通往理想CAD模型之路的障碍</h2>
+            <p class="text-lg mb-8 text-center">尽管技术进步显著，点云到CAD的转换仍面临数据、算法、自动化等多方面的挑战。</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-3">
+                        <span class="challenge-card-icon mr-4">💾</span>
+                        <h3 class="text-xl font-semibold">数据质量与体量</h3>
+                    </div>
+                    <p>噪声、离群点、不完整性（遮挡）、点密度不均以及海量数据对处理和精度构成挑战。</p>
+                </div>
+                <div class="card rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-3">
+                        <span class="challenge-card-icon mr-4">⚙️</span>
+                        <h3 class="text-xl font-semibold">算法鲁棒性与精度</h3>
+                    </div>
+                    <p>复杂几何处理、拓扑正确性保证、以及在模糊数据中区分特征与噪声的难度。</p>
+                </div>
+                <div class="card rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-3">
+                        <span class="challenge-card-icon mr-4">🤖</span>
+                        <h3 class="text-xl font-semibold">自动化与人工干预</h3>
+                    </div>
+                    <p>完全自动化的难度大，许多流程仍需人工干预，需在效率与质量间寻求平衡。</p>
+                </div>
+                <div class="card rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-3">
+                        <span class="challenge-card-icon mr-4">💰</span>
+                        <h3 class="text-xl font-semibold">计算成本</h3>
+                    </div>
+                    <p>大规模点云处理和复杂算法运行耗时耗资源，对实时性要求高的应用构成压力。</p>
+                </div>
+                <div class="card rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-3">
+                        <span class="challenge-card-icon mr-4">🔗</span>
+                        <h3 class="text-xl font-semibold">互操作性与标准化</h3>
+                    </div>
+                    <p>点云与CAD格式多样，转换中可能信息丢失，缺乏“CAD质量”的统一评估标准。</p>
+                </div>
+                 <div class="card rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-3">
+                        <span class="challenge-card-icon mr-4">🎯</span>
+                        <h3 class="text-xl font-semibold">语义理解与设计意图</h3>
+                    </div>
+                    <p>从纯几何点云中推断高级语义信息和原始设计意图是核心难点。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="trends" class="mb-16">
+            <h2 class="text-3xl font-semibold mb-8 section-title pb-2">市场驱动与未来趋势：智能化与普及化并进</h2>
+            <p class="text-lg mb-8 text-center">在人工智能、数字孪生、硬件进步等多重因素驱动下，点云到CAD技术正朝着更智能、更自动、更易用的方向发展。</p>
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-center" style="color: #1A535C;">关键发展趋势</h3>
+                    <div class="space-y-4">
+                        <div class="trend-card rounded-lg shadow-md p-4">
+                            <h4 class="font-semibold text-lg">🚀 AI驱动的自动化</h4>
+                            <p class="text-sm">深度学习在分割、特征识别和端到端CAD生成方面潜力巨大。</p>
+                        </div>
+                        <div class="trend-card rounded-lg shadow-md p-4">
+                            <h4 class="font-semibold text-lg">🤝 混合方法的融合</h4>
+                            <p class="text-sm">结合传统几何的鲁棒性与深度学习的智能性。</p>
+                        </div>
+                        <div class="trend-card rounded-lg shadow-md p-4">
+                            <h4 class="font-semibold text-lg">🌐 数字孪生与BIM集成</h4>
+                            <p class="text-sm">点云成为创建和更新数字孪生及BIM模型的关键数据源。</p>
+                        </div>
+                        <div class="trend-card rounded-lg shadow-md p-4">
+                            <h4 class="font-semibold text-lg">🛠️ 参数化与可编辑输出</h4>
+                            <p class="text-sm">目标是逆向工程设计意图，生成真正可编辑的CAD模型。</p>
+                        </div>
+                         <div class="trend-card rounded-lg shadow-md p-4">
+                            <h4 class="font-semibold text-lg">📱 扫描硬件普及</h4>
+                            <p class="text-sm">更经济、高分辨率的扫描仪及移动扫描方案推动应用普及。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card rounded-lg shadow-lg p-6">
+                     <h3 class="text-2xl font-semibold mb-4 text-center" style="color: #1A535C;">技术成熟度与采纳趋势 (概念图)</h3>
+                    <div class="chart-container h-96 md:h-[450px]">
+                        <canvas id="trendsChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2 text-center">此图表为概念展示，表示不同技术方向的成熟度和采纳增长潜力。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="opensource" class="mb-16">
+            <h2 class="text-3xl font-semibold mb-8 section-title pb-2">开源生态系统：创新与协作的沃土</h2>
+            <p class="text-lg mb-8 text-center">开源社区为点云处理和CAD转换提供了丰富的工具和库，推动了技术的普及和发展。</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="tool-card rounded-lg shadow-lg p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3" style="color: #1A535C;">PCL (点云库)</h3>
+                        <p class="mb-3 text-sm">大规模、通用的点云处理算法库，功能涵盖滤波、分割、重建、拟合等。</p>
+                        <p class="font-semibold mb-1">核心优势:</p>
+                        <ul class="list-disc list-inside text-sm space-y-1 mb-4">
+                            <li>算法丰富，底层控制力强</li>
+                            <li>适用于复杂几何处理和算法开发</li>
+                            <li>BSD许可证，商用友好</li>
+                        </ul>
+                    </div>
+                    <div class="chart-container h-48 max-h-48">
+                        <canvas id="pclChart"></canvas>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1 text-center">主要功能领域 (概念)</p>
+                </div>
+                <div class="tool-card rounded-lg shadow-lg p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3" style="color: #1A535C;">CloudCompare</h3>
+                        <p class="mb-3 text-sm">三维点云与网格可视化、处理与分析软件，支持格式众多。</p>
+                        <p class="font-semibold mb-1">核心优势:</p>
+                        <ul class="list-disc list-inside text-sm space-y-1 mb-4">
+                            <li>交互性强，可视化效果好</li>
+                            <li>适用于预处理和基本分析</li>
+                            <li>免费开源 (GPL推测)</li>
+                        </ul>
+                    </div>
+                     <div class="chart-container h-48 max-h-48">
+                        <canvas id="ccChart"></canvas>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1 text-center">主要功能领域 (概念)</p>
+                </div>
+                <div class="tool-card rounded-lg shadow-lg p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3" style="color: #1A535C;">FreeCAD</h3>
+                        <p class="mb-3 text-sm">开源参数化3D CAD建模软件，包含点云和逆向工程工作台。</p>
+                        <p class="font-semibold mb-1">核心优势:</p>
+                        <ul class="list-disc list-inside text-sm space-y-1 mb-4">
+                            <li>提供从点云到参数化CAD的完整开源路径</li>
+                            <li>支持多种CAD格式导入导出</li>
+                            <li>LGPL许可证</li>
+                        </ul>
+                    </div>
+                    <div class="chart-container h-48 max-h-48">
+                        <canvas id="freecadChart"></canvas>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1 text-center">主要功能领域 (概念)</p>
+                </div>
+            </div>
+            <p class="mt-6 text-md text-gray-600 text-center">用户通常需要组合使用不同工具构建自定义工作流，以满足特定需求。</p>
+        </section>
+
+        <section id="conclusion" class="bg-white py-12 rounded-lg shadow-xl">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-semibold mb-6 section-title pb-2 inline-block">结论：迈向更智能的数字未来</h2>
+                <p class="text-lg mb-4 max-w-3xl mx-auto">
+                    点云到CAD转换技术是连接物理世界与数字设计制造的关键。尽管面临挑战，但在AI、新算法和开源社区的推动下，该技术正不断进步，旨在生成不仅几何精确，更能承载设计意图和工程信息的“智能”CAD模型。
+                </p>
+                <p class="text-lg max-w-3xl mx-auto" style="color: #45B7D1;">
+                    随着技术的普及和成本的降低，点云到CAD的应用将更加广泛，为各行各业的数字化转型注入新的活力。
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-1A535C text-white py-8 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm">&copy; 2025 点云到CAD洞察报告。所有信息仅供参考。</p>
+        </div>
+    </footer>
+
+    <script>
+        const CHART_COLORS = {
+            yellow: '#FFD166',
+            green: '#06D6A0',
+            blue: '#118AB2',
+            pink: '#EF476F',
+            coral: '#FF6B6B',
+            aqua: '#4ECDC4'
+        };
+
+        function wrapText(text, maxWidth) {
+            if (typeof text !== 'string') return text; // Return as is if not a string (e.g., already an array)
+            if (text.length <= maxWidth) return text;
+
+            const words = text.split(''); // Split by character for Chinese
+            let lines = [];
+            let currentLine = '';
+            for (let i = 0; i < words.length; i++) {
+                if ((currentLine + words[i]).length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                } else {
+                    currentLine += words[i];
+                }
+            }
+            if (currentLine.length > 0) {
+                lines.push(currentLine);
+            }
+            return lines;
+        }
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(''); // Join without space for Chinese
+            }
+            return label;
+        };
+
+        // Trends Chart
+        const trendsCtx = document.getElementById('trendsChart')?.getContext('2d');
+        if (trendsCtx) {
+            const trendLabels = [
+                '传统几何算法', 
+                '早期AI探索', 
+                '深度学习应用', 
+                '混合方法', 
+                '端到端自动化 (未来)'
+            ].map(label => wrapText(label, 8));
+            new Chart(trendsCtx, {
+                type: 'line',
+                data: {
+                    labels: trendLabels,
+                    datasets: [{
+                        label: '技术成熟度/采纳度',
+                        data: [80, 45, 70, 65, 40],
+                        borderColor: CHART_COLORS.coral,
+                        backgroundColor: 'rgba(255, 107, 107, 0.2)',
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: { display: true, text: '成熟度/采纳度 (%)' }
+                        },
+                        x: {
+                             ticks: {
+                                callback: function(value, index, ticks) {
+                                    const label = this.getLabelForValue(value);
+                                    return Array.isArray(label) ? label : wrapText(label, 8);
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    }
+                }
+            });
+        }
+
+        // PCL Donut Chart
+        const pclCtx = document.getElementById('pclChart')?.getContext('2d');
+        if (pclCtx) {
+            new Chart(pclCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['算法库', '重建拟合', '预处理'].map(label => wrapText(label, 6)),
+                    datasets: [{
+                        label: 'PCL 功能分布',
+                        data: [50, 30, 20],
+                        backgroundColor: [CHART_COLORS.blue, CHART_COLORS.green, CHART_COLORS.yellow],
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth:10, font: {size: 10}} },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    }
+                }
+            });
+        }
+
+        // CloudCompare Donut Chart
+        const ccCtx = document.getElementById('ccChart')?.getContext('2d');
+        if (ccCtx) {
+            new Chart(ccCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['可视化', '预处理', '分析'].map(label => wrapText(label, 6)),
+                    datasets: [{
+                        label: 'CloudCompare 功能分布',
+                        data: [45, 35, 20],
+                        backgroundColor: [CHART_COLORS.aqua, CHART_COLORS.pink, CHART_COLORS.yellow],
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                     plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth:10, font: {size: 10}} },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    }
+                }
+            });
+        }
+        
+        // FreeCAD Donut Chart
+        const freecadCtx = document.getElementById('freecadChart')?.getContext('2d');
+        if (freecadCtx) {
+            new Chart(freecadCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['CAD建模', '逆向工程', '点云导入'].map(label => wrapText(label, 6)),
+                    datasets: [{
+                        label: 'FreeCAD 功能分布',
+                        data: [50, 30, 20],
+                        backgroundColor: [CHART_COLORS.coral, CHART_COLORS.green, CHART_COLORS.blue],
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                     plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth:10, font: {size: 10}} },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    }
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>
