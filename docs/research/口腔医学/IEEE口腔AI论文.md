@@ -1,0 +1,63 @@
+
+
+
+##   2022IEEE
+
+- [Missing_Teeth_and_Restoration_Detection_Using_Dental_Panoramic_Radiography_Based_on_Transfer_Learning_With_CNNs.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2022IEEE/Missing_Teeth_and_Restoration_Detection_Using_Dental_Panoramic_Radiography_Based_on_Transfer_Learning_With_CNNs.pdf)
+
+
+##   2023IEEE
+
+- [Classification_of_the_Relationship_Between_Mandibular_Third_Molar_and_Inferior_Alveolar_Nerve_Based_on_Generated_Mask_Images.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/Classification_of_the_Relationship_Between_Mandibular_Third_Molar_and_Inferior_Alveolar_Nerve_Based_on_Generated_Mask_Images.pdf)
+- [TranSDFNet_Transformer-Based_Truncated_Signed_Distance_Fields_for_the_Shape_Design_of_Removable_Partial_Denture_Clasps.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/TranSDFNet_Transformer-Based_Truncated_Signed_Distance_Fields_for_the_Shape_Design_of_Removable_Partial_Denture_Clasps.pdf)
+- [3D_Monitoring_of_Toothbrushing_Regions_and_Force_Using_Multimodal_Sensors_and_Unity.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/3D_Monitoring_of_Toothbrushing_Regions_and_Force_Using_Multimodal_Sensors_and_Unity.pdf)
+- [Absorption_Spectroscopy_in_Dental_Tissue_Analysis.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/Absorption_Spectroscopy_in_Dental_Tissue_Analysis.pdf)
+- [Position_Weighted_Convolutional_Neural_Network_for_Unbalanced_Children_Caries_Diagnosis.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/Position_Weighted_Convolutional_Neural_Network_for_Unbalanced_Children_Caries_Diagnosis.pdf)
+- [Digital_Interactive_Design_and_Robot-Assisted_Preparation_Experiment_of_Tooth_Veneer_Preparation_An_in_Vitro_Proof-of-Concept.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/Digital_Interactive_Design_and_Robot-Assisted_Preparation_Experiment_of_Tooth_Veneer_Preparation_An_in_Vitro_Proof-of-Concept.pdf)
+- [DHI-GAN_Improving_Dental-Based_Human_Identification_Using_Generative_Adversarial_Networks.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/DHI-GAN_Improving_Dental-Based_Human_Identification_Using_Generative_Adversarial_Networks.pdf)
+- [GRAB-Net_Graph-Based_Boundary-Aware_Network_for_Medical_Point_Cloud_Segmentation.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/GRAB-Net_Graph-Based_Boundary-Aware_Network_for_Medical_Point_Cloud_Segmentation.pdf)
+- [Hierarchical_Self-Supervised_Learning_for_3D_Tooth_Segmentation_in_Intra-Oral_Mesh_Scans.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/Hierarchical_Self-Supervised_Learning_for_3D_Tooth_Segmentation_in_Intra-Oral_Mesh_Scans.pdf)
+- [HR-Net_A_Landmark_Based_High_Realistic_Face_Reenactment_Network.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/HR-Net_A_Landmark_Based_High_Realistic_Face_Reenactment_Network.pdf)
+- [ImTooth_Neural_Implicit_Tooth_for_Dental_Augmented_Reality.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/ImTooth_Neural_Implicit_Tooth_for_Dental_Augmented_Reality.pdf)
+- [A_Vision-Based_Navigation_System_With_Markerless_Image_Registration_and_Position-Sensing_Localization_for_Oral_and_Maxillofacial_Surgery.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/A_Vision-Based_Navigation_System_With_Markerless_Image_Registration_and_Position-Sensing_Localization_for_Oral_and_Maxillofacial_Surgery.pdf)
+- [A_Revised_Approach_to_Orthodontic_Treatment_Monitoring_From_Oralscan_Video.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/A_Revised_Approach_to_Orthodontic_Treatment_Monitoring_From_Oralscan_Video.pdf)
+- [An_Uncertainty-Aware_and_Sex-Prior_Guided_Biological_Age_Estimation_From_Orthopantomogram_Images.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/An_Uncertainty-Aware_and_Sex-Prior_Guided_Biological_Age_Estimation_From_Orthopantomogram_Images.pdf)
+
+- [OrthoAligner_Image-Based_Teeth_Alignment_Prediction_via_Latent_Style_Manipulation.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/OrthoAligner_Image-Based_Teeth_Alignment_Prediction_via_Latent_Style_Manipulation.pdf)
+- [Multiclass_Segmentation_Using_Teeth_Attention_Modules_for_Dental_X-Ray_Images.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/Multiclass_Segmentation_Using_Teeth_Attention_Modules_for_Dental_X-Ray_Images.pdf)
+- [Deep-Learning-Based_Segmentation_of_Individual_Tooth_and_Bone_With_Periodontal_Ligament_Interface_Details_for_Simulation_Purposes.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/Deep-Learning-Based_Segmentation_of_Individual_Tooth_and_Bone_With_Periodontal_Ligament_Interface_Details_for_Simulation_Purposes.pdf)
+
+
+##   2023IEEE/口扫
+
+- [TeethGNN_Semantic_3D_Teeth_Segmentation_With_Graph_Neural_Networks.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/口扫/TeethGNN_Semantic_3D_Teeth_Segmentation_With_Graph_Neural_Networks.pdf)
+- [口扫仪Calibration_of_Intraoral_3-D_Measurement_System_With_Using_Consummated_Model_Combined_With_Highly_Accurate_Data_Pairs.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/口扫/口扫仪Calibration_of_Intraoral_3-D_Measurement_System_With_Using_Consummated_Model_Combined_With_Highly_Accurate_Data_Pairs.pdf)
+- [Automatic_Detection_of_Tooth-Gingiva_Trim_Lines_on_Dental_Surfaces.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/口扫/Automatic_Detection_of_Tooth-Gingiva_Trim_Lines_on_Dental_Surfaces.pdf)
+- [CGA-UNet_Category-Guide_Attention_U-Net_for_Dental_Abnormality_Detection_and_Segmentation_From_Dental-Maxillofacial_Images.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2023IEEE/口扫/CGA-UNet_Category-Guide_Attention_U-Net_for_Dental_Abnormality_Detection_and_Segmentation_From_Dental-Maxillofacial_Images.pdf)
+
+
+##  2024IEEE
+
+- [Tooth_Alignment_Network_Based_on_Landmark_Constraints_and_Hierarchical_Graph_Structure-dual.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Tooth_Alignment_Network_Based_on_Landmark_Constraints_and_Hierarchical_Graph_Structure-dual.pdf)
+- Automatic_3D_Teeth_Reconstruction_From_Five_Intra-Oral_Photos_Using_Parametric_Teeth_Model.pdf (上传失败)
+- [NKUT_Dataset_and_Benchmark_for_Pediatric_Mandibular_Wisdom_Teeth_Segmentation.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/NKUT_Dataset_and_Benchmark_for_Pediatric_Mandibular_Wisdom_Teeth_Segmentation.pdf)
+- [A_Hybrid_Transfer_Learning_Approach_to_Teeth_Diagnosis_Using_Orthopantomogram_Radiographs.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/A_Hybrid_Transfer_Learning_Approach_to_Teeth_Diagnosis_Using_Orthopantomogram_Radiographs.pdf)
+- [Tooth_Alignment_Network_Based_on_Landmark_Constraints_and_Hierarchical_Graph_Structure-mono.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Tooth_Alignment_Network_Based_on_Landmark_Constraints_and_Hierarchical_Graph_Structure-mono.pdf)
+- [IEEE TRANSACTIONS ON BIOMEDICAL ENGINEERING, VOL. 59, NO. 4, APRIL 2012，Automatic_Teeth_Axes_Calculation_for_Well-Aligned_Teeth_Using_Cost_Profile_Analysis_Along_Teeth_Center_Arch.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/IEEE TRANSACTIONS ON BIOMEDICAL ENGINEERING, VOL. 59, NO. 4, APRIL 2012，Automatic_Teeth_Axes_Calculation_for_Well-Aligned_Teeth_Using_Cost_Profile_Analysis_Along_Teeth_Center_Arch.pdf)
+- [Empowering_Portable_Optoelectronics_With_Computer_Vision_for_Intraoral_Cavity_Detection.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Empowering_Portable_Optoelectronics_With_Computer_Vision_for_Intraoral_Cavity_Detection.pdf)
+- Deep_Learning_for_Mandibular_Canal_Segmentation_in_Digital_Dental_Radiographs_A_Systematic_Literature_Review.pdf (上传失败)
+- [Spatial_Prior-Guided_Bi-Directional_Cross-Attention_Transformers_for_Tooth_Instance_Segmentation.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Spatial_Prior-Guided_Bi-Directional_Cross-Attention_Transformers_for_Tooth_Instance_Segmentation.pdf)
+- [Detection_of_Tooth_Position_by_YOLOv4_and_Various_Dental_Problems_Based_on_CNN_With_Bitewing_Radiograph.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Detection_of_Tooth_Position_by_YOLOv4_and_Various_Dental_Problems_Based_on_CNN_With_Bitewing_Radiograph.pdf)
+- [Robotics_Application_in_Dentistry_A_Review.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Robotics_Application_in_Dentistry_A_Review.pdf)
+- [Semantic_Segmentation_on_Panoramic_Dental_X-Ray_Images_Using_U-Net_Architectures.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Semantic_Segmentation_on_Panoramic_Dental_X-Ray_Images_Using_U-Net_Architectures.pdf)
+- [Tooth_Alignment_Network_Based_on_Landmark_Constraints_and_Hierarchical_Graph_Structure.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/Tooth_Alignment_Network_Based_on_Landmark_Constraints_and_Hierarchical_Graph_Structure.pdf)
+- [DTR-Net_Dual-Space_3D_Tooth_Model_Reconstruction_From_Panoramic_X-Ray_Images.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/DTR-Net_Dual-Space_3D_Tooth_Model_Reconstruction_From_Panoramic_X-Ray_Images.pdf)
+- [A_Low-Cost_Portable_50_mT_MRI_Scanner_for_Dental_Imaging.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/A_Low-Cost_Portable_50_mT_MRI_Scanner_for_Dental_Imaging.pdf)
+
+
+##  2024IEEE/口扫分割
+
+- [Weighted_Sparse_Convolution_and_Transformer_Feature_Aggregation_Networks_for_3D_Dental_Segmentation.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/口扫分割/Weighted_Sparse_Convolution_and_Transformer_Feature_Aggregation_Networks_for_3D_Dental_Segmentation.pdf)
+- [DBGANet_Dual-Branch_Geometric_Attention_Network_for_Accurate_3D_Tooth_Segmentation.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/口扫分割/DBGANet_Dual-Branch_Geometric_Attention_Network_for_Accurate_3D_Tooth_Segmentation.pdf)
+- [THISNet_Tooth_Instance_Segmentation_on_3D_Dental_Models_via_Highlighting_Tooth_Regions.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/口扫分割/THISNet_Tooth_Instance_Segmentation_on_3D_Dental_Models_via_Highlighting_Tooth_Regions.pdf)
+- [Mesh_Segmentation_for_Individual_Teeth_Based_on_Two-Stream_GCN_With_Self-Attention.pdf](https://code-liuhao.oss-cn-hangzhou.aliyuncs.com/alignai/2024IEEE/口扫分割/Mesh_Segmentation_for_Individual_Teeth_Based_on_Two-Stream_GCN_With_Self-Attention.pdf)
