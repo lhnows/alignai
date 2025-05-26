@@ -42,7 +42,7 @@ jobs:
           # 递归上传整个 site 目录到 OSS
           ossutil cp -r site/ oss://$BUCKET/ --update
       - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v30
+        uses: amondnet/vercel-action@v4
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}          # 必须
           working-directory: "site"                         # 必须（默认值）
