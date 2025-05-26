@@ -4,13 +4,40 @@ on:
     branches:
       - master
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          python-version: 3.x
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+          python-version: "3.x"
+
+      - name: Install MkDocs
+        run: pip install mkdocs-material
+
+      - name: Build site
+        run: mkdocs build
+
+      - name: Install Aliyun OSS CLI
+        run: |
+          # 安装阿里云 CLI (包含 ossutil)
+          wget http://gosspublic.alicdn.com/ossutil/1.7.1/ossutil64 -O /usr/local/bin/ossutil
+          chmod +x /usr/local/bin/ossutil
+          ossutil --version
+
+      - name: Upload to Aliyun OSS
+        env:
+          ENDPOINT: ${{ secrets.ALIYUN_ENDPOINT }}
+          BUCKET: ${{ secrets.ALIYUN_BUCKET_NAME }}
+          ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
+          ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
+        run: |
+          # 配置 ossutil
+          ossutil config -i $ACCESS_KEY_ID -k $ACCESS_KEY_SECRET -e $ENDPOINT
+
+          # 递归上传整个 site 目录到 OSS
+          ossutil cp -r site/ oss://$BUCKET/ --update
