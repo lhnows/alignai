@@ -21,4 +21,5 @@ nav:
         - IEEE口腔AI论文: "research/口腔医学/IEEE口腔AI论文.md"
   - 项目: 
       - MASt3R-SLAM: "projects/MASt3R-SLAM.md"
+      - 基础环境安装: "projects/环境安装.md"
   - "license.md"
