@@ -24,4 +24,6 @@ nav:
       - MASt3R-SLAM: "projects/MASt3R-SLAM.md"
       - 基础环境安装: "projects/环境安装.md"
       - VTKexamples: "projects/VTKexamples.md"
+      - GB28281: "projects/GB28281.md"
+      - 在线Demo: "projects/在线Demo.md"
   - "license.md"
