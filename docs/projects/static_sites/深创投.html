@@ -1,0 +1,397 @@
+深创投
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海狸家口腔科技 | B轮融资提案</title>
+    <style>
+        :root {
+            --apple-blue: #0071e3;
+            --apple-gray: #f5f5f7;
+            --apple-black: #1d1d1f;
+            --apple-dark: #121212;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            background-color: var(--apple-gray);
+            color: var(--apple-black);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 2rem;
+            border-radius: 18px;
+            background: linear-gradient(150deg, #f5f5f7 0%, #ffffff 100%);
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,113,227,0.2), transparent);
+        }
+
+        .section {
+            padding: 4rem 3rem;
+            margin: 3rem 0;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--apple-blue);
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--apple-blue);
+            border-radius: 3px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--apple-black);
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--apple-black);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--apple-black);
+            margin-bottom: 1rem;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .data-card {
+            padding: 2.5rem;
+            border-radius: 14px;
+            background: var(--apple-gray);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .data-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--apple-blue);
+            margin: 1.5rem 0;
+            line-height: 1;
+        }
+
+        .comparison {
+            display: flex;
+            justify-content: space-between;
+            background: var(--apple-gray);
+            padding: 3rem;
+            border-radius: 14px;
+            margin: 3rem 0;
+        }
+
+        .comparison-item {
+            flex: 1;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: var(--apple-blue);
+            color: white;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline {
+            border-left: 3px solid var(--apple-blue);
+            padding-left: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            background: var(--apple-gray);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -2.9rem;
+            top: 2.3rem;
+            width: 16px;
+            height: 16px;
+            background: var(--apple-blue);
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .investment-highlights {
+            background: linear-gradient(135deg, #0071e3 0%, #00a1e6 100%);
+            color: white;
+            padding: 4rem;
+            border-radius: 18px;
+            margin: 4rem 0;
+        }
+
+        .highlight-item {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .highlight-item::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .market-size {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 4rem 0;
+        }
+
+        .market-size-chart {
+            flex: 1;
+            height: 200px;
+            background: linear-gradient(90deg, #0071e3, #00a1e6);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .market-size-chart::after {
+            content: "2027年预测";
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .market-size-text {
+            flex: 1;
+            padding: 0 3rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .comparison {
+                flex-direction: column;
+            }
+            
+            .market-size {
+                flex-direction: column;
+            }
+            
+            .market-size-text {
+                padding: 2rem 0 0 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>海狸家口腔科技</h1>
+            <p style="font-size: 1.5rem; color: #666; max-width: 800px; margin: 0 auto;">专注AI技术细分场景应用 · 重塑口腔正畸产业格局</p>
+            <div style="margin-top: 3rem;">
+                <span class="badge">B轮融资提案</span>
+                <span class="badge" style="background: #34c759;">深创投专项</span>
+            </div>
+        </div>
+
+        <!-- 核心技术 -->
+        <div class="section">
+            <h2 class="section-title">技术壁垒</h2>
+            <h3>MOE混合专家系统 · 行业唯一正畸业务闭环AI AGENT</h3>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: #444; max-width: 900px;">
+                在口腔正畸业务全流程各个环节通过27个自研专用小模型和GPT-4o等前沿大模型技术，构建动态路由决策系统，实现从初诊到保持器佩戴的全流程AI赋能。
+            </p>
+            
+            <div class="data-grid">
+                <div class="data-card">
+                    <div class="badge">技术架构</div>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">垂直领域最大规模的小模型集群<br>+ 动态路由决策引擎<br>+ 多模态数据融合系统</p>
+                </div>
+                <div class="data-card">
+                    <div class="badge">临床验证</div>
+                    <div class="stat-number">98%</div>
+                    <p style="font-size: 1.1rem;">诊断准确率（经三甲医院双盲测试）</p>
+                </div>
+                <div class="data-card">
+                    <div class="badge">效率革命</div>
+                    <div class="stat-number">45%</div>
+                    <p style="font-size: 1.1rem;">平均治疗周期缩短</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 运营数据 -->
+        <div class="section">
+            <h2 class="section-title">运营突破</h2>
+            <h3>创造齿科连锁经营代际优势</h3>
+            
+            <div class="comparison">
+                <div class="comparison-item">
+                    <div class="stat-number">8X</div>
+                    <p style="font-size: 1.1rem;">正畸门诊运营效率提升</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="stat-number">10X</div>
+                    <p style="font-size: 1.1rem;">正畸医师人效提升</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="stat-number">∞</div>
+                    <p style="font-size: 1.1rem;">标准化复制能力</p>
+                </div>
+            </div>
+            
+            <p style="font-size: 1.1rem; color: #666; max-width: 800px; margin: 0 auto;">
+                已实现从单店模型到城市级扩张的完整验证，单位面积产出达到传统模式的3.2倍，客户NPS值提升至89分。
+            </p>
+        </div>
+
+        <!-- 投资亮点 -->
+        <div class="investment-highlights">
+            <h2 style="color: white; margin-bottom: 3rem;">核心投资亮点</h2>
+            
+            <div class="highlight-item">
+                <h3 style="color: white;">千亿级蓝海市场</h3>
+                <p>中国正畸市场规模2025年将突破1500亿元，年复合增长率24%，数字化渗透率不足15%</p>
+            </div>
+            
+            <div class="highlight-item">
+                <h3 style="color: white;">技术-商业双闭环</h3>
+                <p>唯一实现从AI诊断到智能矫治器生产的全链条覆盖，LTV提升300%</p>
+            </div>
+            
+            <div class="highlight-item">
+                <h3 style="color: white;">边际成本趋零</h3>
+                <p>AI系统使得新增诊所的IT投入下降82%，6个月即可实现盈亏平衡</p>
+            </div>
+            
+            <div class="market-size">
+                <div class="market-size-chart"></div>
+                <div class="market-size-text">
+                    <div class="stat-number" style="color: white;">2000+</div>
+                    <h3 style="color: white;">三年OMO战略目标</h3>
+                    <p>基于AI技术对B端输出，打造2000个门店服务网点的OMO AI诊疗网络，预计覆盖75%的一二线城市人口</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 发展路线 -->
+        <div class="section">
+            <h2 class="section-title">战略规划</h2>
+            <h3>技术输出创造平台价值</h3>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>2024 - 技术标准化年</h3>
+                    <p>• 完成MOE系统2.0升级，动态路由精度提升至99.2%<br>
+                    • 建立AI诊疗行业标准，通过CFDA三类认证<br>
+                    • 首批200家合作诊所落地</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2025 - 模式输出年</h3>
+                    <p>• 推出SaaS化AI正畸解决方案<br>
+                    • 建立全球最大的正畸病例数据库（预计超50万例）<br>
+                    • 实现800个服务网点覆盖</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2026 - 生态构建年</h3>
+                    <p>• 完成2000个智能网点布局<br>
+                    • 启动AI牙科机器人研发项目<br>
+                    • 准备Pre-IPO轮融资</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>海狸家口腔科技 · 让AI重新定义齿科服务</p>
+            <p>融资联系人: CTO张博士 138-XXXX-XXXX | biz@beaverdental.ai</p>
+        </div>
+    </div>
+</body>
+</html>
+

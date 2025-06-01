@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>口腔正畸行业趋势与机遇：交互式报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #F8F7F4;
+            color: #3D3D3D;
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #008080; /* Teal-500 */
+            border-bottom-color: #008080;
+        }
+        .tab-button {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .tab-button.active {
+            background-color: #008080;
+            color: #FFFFFF;
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+        .modal {
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal.show {
+            display: flex;
+        }
+        .company-logo {
+            cursor: pointer;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s;
+        }
+        .company-logo:hover, .company-logo.active {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-xl font-bold text-gray-800">口腔正畸行业洞察</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#overview" class="nav-link">市场概览</a>
+                <a href="#trends" class="nav-link">变革驱动力</a>
+                <a href="#competition" class="nav-link">竞争格局</a>
+                <a href="#opportunities" class="nav-link">机遇与挑战</a>
+                <a href="#future" class="nav-link">未来展望</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden flex items-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#overview" class="block py-2 px-4 text-sm hover:bg-gray-200">市场概览</a>
+            <a href="#trends" class="block py-2 px-4 text-sm hover:bg-gray-200">变革驱动力</a>
+            <a href="#competition" class="block py-2 px-4 text-sm hover:bg-gray-200">竞争格局</a>
+            <a href="#opportunities" class="block py-2 px-4 text-sm hover:bg-gray-200">机遇与挑战</a>
+            <a href="#future" class="block py-2 px-4 text-sm hover:bg-gray-200">未来展望</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="overview" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4 text-[#005f5f]">口腔正畸市场的崛起与变革</h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12">由技术创新与美学需求双轮驱动，全球口腔正畸行业正从传统矫治迈向一个更广泛、更智能、更个性化的新时代。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-[#F0F5F5] p-6 rounded-xl shadow-md">
+                        <h3 class="text-4xl font-bold text-[#008080] mb-2" id="market-size-2024">~ $100亿</h3>
+                        <p class="text-gray-700">2024年全球市场规模估值</p>
+                    </div>
+                    <div class="bg-[#F0F5F5] p-6 rounded-xl shadow-md">
+                        <h3 class="text-4xl font-bold text-[#008080] mb-2" id="market-cagr">> 15%</h3>
+                        <p class="text-gray-700">普遍预测复合年增长率 (CAGR)</p>
+                    </div>
+                    <div class="bg-[#F0F5F5] p-6 rounded-xl shadow-md">
+                        <h3 class="text-4xl font-bold text-[#008080] mb-2" id="dominant-segment">成人正畸</h3>
+                        <p class="text-gray-700">当前市场主导与增长核心</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="market-insights" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 text-gray-800">深入市场洞察</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">从全球增长到细分市场，探索口腔正畸行业的核心数据与动态。点击下方标签页以切换图表和分析内容。</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-center text-gray-700">全球市场规模与预测 (亿美元)</h3>
+                         <div class="chart-container h-[300px] md:h-[400px]">
+                            <canvas id="marketGrowthChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                         <h3 class="text-2xl font-bold mb-4 text-center text-gray-700">市场细分分析</h3>
+                         <div class="flex justify-center flex-wrap gap-2 mb-4">
+                            <button class="tab-button px-4 py-2 rounded-full text-sm font-semibold bg-gray-200 active" data-segment="product">按产品</button>
+                            <button class="tab-button px-4 py-2 rounded-full text-sm font-semibold bg-gray-200" data-segment="age">按年龄</button>
+                            <button class="tab-button px-4 py-2 rounded-full text-sm font-semibold bg-gray-200" data-segment="region">按区域</button>
+                         </div>
+                        <div class="chart-container h-[300px] md:h-[400px]">
+                            <canvas id="segmentationChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                 <div id="segmentation-details" class="mt-8 bg-white p-6 rounded-xl shadow">
+                    <h4 class="text-xl font-bold mb-2 text-[#005f5f]" id="segment-title">产品类型分析</h4>
+                    <p class="text-gray-600" id="segment-description">耗材（包括托槽、弓丝等）目前占据市场主导地位，但透明矫治器凭借其美观、舒适的特性，正成为增长最快的品类，并带动了口内扫描仪、3D打印等数字化解决方案的需求。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="trends" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 text-gray-800">引领行业变革的关键趋势</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">从隐形美学到人工智能，探索正在重塑口腔正畸未来的六大核心驱动力。点击卡片了解更多详情。</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="trends-grid">
+                </div>
+            </div>
+        </section>
+        
+        <section id="competition" class="py-16 md:py-24">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 text-gray-800">竞争格局与生态系统</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">了解市场中的主要玩家、他们的战略动向，以及正在改变行业规则的新兴商业模式。</p>
+                </div>
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-center mb-6 text-[#005f5f]">主要市场参与者</h3>
+                    <div id="company-logos" class="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 md:gap-x-16 mb-8">
+                    </div>
+                    <div id="company-details" class="p-6 bg-gray-50 rounded-lg min-h-[150px]">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2" id="company-name">请选择一个公司Logo查看详情</h4>
+                        <p class="text-gray-600 mb-2" id="company-products"></p>
+                        <p class="text-gray-600" id="company-strategy"></p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-3 text-[#005f5f]">DSO模式的影响</h3>
+                        <p class="text-gray-600">牙科服务组织(DSO)通过规模化运营和集中管理，正在深刻影响行业价值链。它们提升了运营效率，增强了对上游供应商的议价能力，同时也为牙医提供了新的执业选择，并可能对独立诊所构成竞争压力。</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-3 text-[#005f5f]">DTC模式的演变</h3>
+                        <p class="text-gray-600">直接面向消费者(DTC)模式在经历了初期探索和挑战后，正从纯远程模式向“专业指导下的混合模式”演变。行业共识是，远程技术的便利性必须与执业医师的专业监督相结合，以确保医疗质量与患者安全。</p>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <section id="opportunities" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 text-gray-800">机遇与挑战</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">天平的两端：一边是广阔的增长机遇，另一边是行业必须应对的挑战。</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-center text-green-700">主要增长机遇</h3>
+                        <div class="space-y-4" id="opportunities-list">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-center text-red-700">行业核心挑战</h3>
+                        <div class="space-y-4" id="challenges-list">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="future" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 text-gray-800">未来展望与战略建议</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">未来5-10年，行业将走向何方？不同角色应如何布局以把握先机？</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold mb-4 text-[#005f5f]">未来5-10年演进预测</h3>
+                    <p class="text-gray-700">未来，口腔正畸行业的核心特征将是**“规模化的智能个性化”**。数字化将成为标配，AI应用将从辅助诊断深化至预测与自动化。治疗方案将更全面地融入颌面美学、功能乃至遗传因素。远程与线下结合的混合护理模式将成为常态，而可持续发展理念将深度融入行业实践。一个更精准、高效、舒适且人性化的口腔正畸新时代已然来临。</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h4 class="text-xl font-bold mb-3 text-teal-700">对制造商的建议</h4>
+                        <ul class="list-disc list-inside space-y-2 text-gray-600">
+                            <li>加大对AI、新材料的研发投入</li>
+                            <li>实施差异化、多层次产品策略</li>
+                            <li>构建开放合作生态，加速创新</li>
+                            <li>为临床用户提供全面的培训支持</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h4 class="text-xl font-bold mb-3 text-teal-700">对投资者的建议</h4>
+                        <ul class="list-disc list-inside space-y-2 text-gray-600">
+                            <li>关注具备强大数字化基因的企业</li>
+                            <li>评估新兴市场潜力，审慎尽调</li>
+                            <li>寻找解决行业痛点（如成本）的创新者</li>
+                            <li>投资关键赋能技术（如3D打印、AI）</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h4 class="text-xl font-bold mb-3 text-teal-700">对执业医师的建议</h4>
+                        <ul class="list-disc list-inside space-y-2 text-gray-600">
+                            <li>积极拥抱并整合数字化技术</li>
+                            <li>提升透明矫治器与美学正畸专业能力</li>
+                            <li>探索应用远程医疗工具提升效率</li>
+                            <li>强化医患沟通与跨学科协作</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>口腔正畸行业趋势与机遇交互式报告</p>
+            <p class="text-sm text-gray-400 mt-2">数据与分析基于提供的源报告合成。仅供参考。</p>
+        </div>
+    </footer>
+
+    <div id="trend-modal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="text-2xl font-bold text-[#005f5f]"></h3>
+                    <button id="modal-close" class="text-gray-500 hover:text-gray-800">&times;</button>
+                </div>
+                <p id="modal-content" class="text-gray-600"></p>
+            </div>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const reportData = {
+        keyMetrics: {
+            marketSize2024: '$70亿 - $125亿',
+            cagr: '15% - 17.5%',
+            dominantSegment: '成人正畸',
+        },
+        marketGrowth: {
+            labels: ['2024', '2026', '2028', '2030', '2032', '2034'],
+            data: [76.5, 105, 145, 200, 275, 382.1]
+        },
+        segmentation: {
+            product: {
+                title: '产品类型分析',
+                description: '耗材（包括托槽、弓丝等）目前占据市场主导地位，但透明矫治器凭借其美观、舒适的特性，正成为增长最快的品类，并带动了口内扫描仪、3D打印等数字化解决方案的需求。',
+                chart: { labels: ['耗材', '透明矫治器', '仪器', '数字化方案'], data: [45, 35, 10, 10] }
+            },
+            age: {
+                title: '患者年龄组分析',
+                description: '成年患者已成为市场的主导部分，其需求主要由对美观的高度关注和可及治疗方案的增多驱动。青少年/儿童市场因错颌畸形高发率和家长投入，依然保持强劲增长。',
+                chart: { labels: ['成人', '青少年/儿童'], data: [60, 40] }
+            },
+            region: {
+                title: '区域市场分析',
+                description: '北美是当前最大的市场，也是技术和趋势的引领者。亚太地区因其庞大的人口基数和经济发展，被视为增长潜力最高的区域。欧洲市场对美学需求强烈，而中东欧潜力巨大。',
+                chart: { labels: ['北美', '亚太', '欧洲', '其他'], data: [44, 25, 23, 8] }
+            }
+        },
+        trends: [
+            { id: 't1', title: '透明矫治器崛起', icon: '✨', content: '透明矫治器因其美观、舒适、便捷的特性，深受成年和青少年患者青睐，已成为市场增长的核心引擎。全球市场CAGR预测高达20%以上，这不仅是产品迭代，更反映了消费者对治疗过程无缝融入日常生活的期望。' },
+            { id: 't2', title: '数字化浪潮', icon: '💻', content: '口内扫描、3D打印和CAD/CAM系统正在构建一个高效、精准的数字化生态系统。这不仅提升了患者体验和治疗精度，也对从业者提出了新的技能要求。未能拥抱数字化工作流程的诊所可能面临竞争力下降的风险。' },
+            { id: 't3', title: '人工智能(AI)应用', icon: '🤖', content: 'AI正革新诊断、治疗计划与监控。它能高效分析影像数据、辅助设计个性化方案、并赋能远程监控。AI目前是辅助医生的强大工具，而非完全替代，其发展需关注数据安全和临床验证。' },
+            { id: 't4', title: '远程牙科与护理', icon: '🌐', content: '远程牙科打破地域限制，提升了服务的可及性与便利性。在吸取纯DTC模式教训后，行业趋势正转向与专业医疗实践结合的“混合模式”，即利用远程技术赋能传统诊所，而非取代实体诊疗。' },
+            { id: 't5', title: '创新正畸材料', icon: '🔬', content: '材料创新方向多元，包括更优的生物相容性、美学效果，以及智能材料（如形状记忆聚合物）和可持续环保材料。这些创新旨在提升疗效、舒适度，并顺应绿色医疗的全球呼声。' },
+            { id: 't6', title: '患者结构演变', icon: '👥', content: '成人正畸市场蓬勃发展，青少年对美学方案的需求也在升级。市场细分不再仅凭年龄，更需依据患者的心理特征和生活方式。为不同群体提供量身定制的产品与沟通策略至关重要。' }
+        ],
+        companies: [
+            { id: 'c1', name: 'Align Technology', logo: 'Align Technology', products: 'Invisalign®, iTero™ 扫描仪', strategy: '构建端到端的数字化正畸生态系统，持续研发创新，并通过市场营销直接激发消费者需求。' },
+            { id: 'c2', name: 'Straumann Group', logo: 'Straumann', products: 'ClearCorrect™, Orthocaps®', strategy: '从种植领域向正畸和数字化口腔护理全面扩张，通过战略并购和自主研发力图成为行业领导者。' },
+            { id: 'c3', name: 'Envista (Ormco)', logo: 'Envista', products: 'Damon™ 系统, Spark™ 矫治器', strategy: '依托丹纳赫商业系统(DBS)，在自锁托槽等优势市场保持竞争力，并积极拓展快速增长的透明矫治器市场。' },
+            { id: 'c4', name: 'Dentsply Sirona', logo: 'Dentsply Sirona', products: 'SureSmile®, In-Ovation®', strategy: '提供全面的牙科解决方案，大力推动数字化牙科工作流程的整合，聚焦核心业务。' },
+            { id: 'c5', name: '3M (Solventum)', logo: '3M', products: 'Clarity™ 矫治器, 传统耗材', strategy: '利用在材料科学的深厚积累，稳固传统市场，同时积极转型并拓展数字化和隐形矫治解决方案。' }
+        ],
+        opportunities: [
+            { title: '新兴市场增长', content: '中国、印度等国中产阶级壮大和可支配收入增加，创造了庞大且潜力巨大的新患者群体。' },
+            { title: '个性化与精准正畸', content: 'AI与3D打印技术使高度定制化的治疗方案成为可能，能显著提升治疗效果和患者满意度。' },
+            { title: '服务欠缺市场拓展', content: '通过远程牙科技术，可以有效服务农村、偏远地区以及老年患者、需要早期干预的儿童等特定人群。' }
+        ],
+        challenges: [
+            { title: '治疗费用高昂', content: '高昂的治疗费用和有限的保险覆盖，是限制市场进一步渗透的主要障碍，提升可负担性是关键。' },
+            { title: '专业人才短缺', content: '合格的正畸医生及辅助人员短缺，尤其在欠发达地区，影响服务可及性与诊所运营效率。' },
+            { title: '激烈的市场竞争', content: '行业巨头、初创公司、DSO等多种力量交织，市场竞争激烈，对所有参与者的创新和效率都提出了更高要求。' }
+        ]
+    };
+
+    function init() {
+        populateKeyMetrics();
+        populateTrends();
+        populateOpportunitiesAndChallenges();
+        populateCompanies();
+        initMarketGrowthChart();
+        initSegmentationChart();
+        setupEventListeners();
+    }
+
+    function populateKeyMetrics() {
+        document.getElementById('market-size-2024').textContent = reportData.keyMetrics.marketSize2024;
+        document.getElementById('market-cagr').textContent = reportData.keyMetrics.cagr;
+        document.getElementById('dominant-segment').textContent = reportData.keyMetrics.dominantSegment;
+    }
+    
+    let marketGrowthChart, segmentationChart;
+
+    function initMarketGrowthChart() {
+        const ctx = document.getElementById('marketGrowthChart').getContext('2d');
+        marketGrowthChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: reportData.marketGrowth.labels,
+                datasets: [{
+                    label: '市场规模 (亿美元)',
+                    data: reportData.marketGrowth.data,
+                    backgroundColor: 'rgba(0, 128, 128, 0.1)',
+                    borderColor: '#008080',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#008080',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: '亿美元' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+    }
+
+    function initSegmentationChart() {
+        const ctx = document.getElementById('segmentationChart').getContext('2d');
+        const initialSegment = 'product';
+        segmentationChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: reportData.segmentation[initialSegment].chart.labels,
+                datasets: [{
+                    data: reportData.segmentation[initialSegment].chart.data,
+                    backgroundColor: ['#008080', '#5F9EA0', '#AEC6CF', '#E0EBEB'],
+                    borderColor: '#F8F7F4',
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
+        });
+    }
+    
+    function updateSegmentationChart(segment) {
+        const segmentData = reportData.segmentation[segment];
+        segmentationChart.data.labels = segmentData.chart.labels;
+        segmentationChart.data.datasets[0].data = segmentData.chart.data;
+        segmentationChart.update();
+
+        document.getElementById('segment-title').textContent = segmentData.title;
+        document.getElementById('segment-description').textContent = segmentData.description;
+    }
+
+    function populateTrends() {
+        const grid = document.getElementById('trends-grid');
+        grid.innerHTML = reportData.trends.map(trend => `
+            <div class="card bg-[#F0F5F5] p-6 rounded-lg" data-trend-id="${trend.id}">
+                <div class="text-4xl mb-4">${trend.icon}</div>
+                <h3 class="text-xl font-bold mb-2 text-gray-800">${trend.title}</h3>
+                <p class="text-gray-600">${trend.content.substring(0, 50)}...</p>
+            </div>
+        `).join('');
+    }
+
+    function populateOpportunitiesAndChallenges() {
+        const opportunitiesList = document.getElementById('opportunities-list');
+        opportunitiesList.innerHTML = reportData.opportunities.map(item => `
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-bold text-lg text-gray-800">${item.title}</h4>
+                <p class="text-gray-600 mt-1">${item.content}</p>
+            </div>
+        `).join('');
+        
+        const challengesList = document.getElementById('challenges-list');
+        challengesList.innerHTML = reportData.challenges.map(item => `
+             <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-bold text-lg text-gray-800">${item.title}</h4>
+                <p class="text-gray-600 mt-1">${item.content}</p>
+            </div>
+        `).join('');
+    }
+
+    function populateCompanies() {
+        const logosContainer = document.getElementById('company-logos');
+        logosContainer.innerHTML = reportData.companies.map(company => `
+            <div class="company-logo p-2 text-center" data-company-id="${company.id}">
+                <span class="text-lg font-semibold">${company.logo}</span>
+            </div>
+        `).join('');
+    }
+
+    function updateCompanyDetails(companyId) {
+        const company = reportData.companies.find(c => c.id === companyId);
+        if (company) {
+            document.getElementById('company-name').textContent = company.name;
+            document.getElementById('company-products').textContent = `主要产品/品牌: ${company.products}`;
+            document.getElementById('company-strategy').textContent = `战略重点: ${company.strategy}`;
+        }
+    }
+    
+    function setupEventListeners() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.nav-link, #mobile-menu a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                if (mobileMenu.classList.contains('hidden') === false) {
+                   mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                updateSegmentationChart(this.dataset.segment);
+            });
+        });
+
+        const modal = document.getElementById('trend-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+        const modalClose = document.getElementById('modal-close');
+
+        document.getElementById('trends-grid').addEventListener('click', function(e) {
+            const card = e.target.closest('.card');
+            if (card) {
+                const trendId = card.dataset.trendId;
+                const trend = reportData.trends.find(t => t.id === trendId);
+                modalTitle.textContent = trend.title;
+                modalContent.textContent = trend.content;
+                modal.classList.add('show');
+            }
+        });
+
+        modalClose.addEventListener('click', () => modal.classList.remove('show'));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+
+        const companyLogosContainer = document.getElementById('company-logos');
+        companyLogosContainer.addEventListener('click', function(e) {
+            const logoEl = e.target.closest('.company-logo');
+            if (logoEl) {
+                document.querySelectorAll('.company-logo').forEach(el => el.classList.remove('active'));
+                logoEl.classList.add('active');
+                updateCompanyDetails(logoEl.dataset.companyId);
+            }
+        });
+        
+        const firstLogo = companyLogosContainer.querySelector('.company-logo');
+        if(firstLogo) {
+            firstLogo.click();
+        }
+    }
+
+    init();
+});
+</script>
+</body>
+</html>
