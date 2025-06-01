@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>颌臻美HarmoAlign - 品牌全案</title>
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --accent-gold: #d4af37;
+            --light-bg: #f0f7ff;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #0d2b64 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-gold);
+            position: relative;
+            overflow: hidden;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: var(--light-bg);
+            border-radius: 50%;
+        }
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1rem;
+        }
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            position: relative;
+        }
+        .logo-icon::before,
+        .logo-icon::after {
+            content: "";
+            position: absolute;
+            background: white;
+            border-radius: 3px;
+        }
+        .logo-icon::before {
+            width: 30px;
+            height: 8px;
+            top: 15px;
+            left: 10px;
+            transform: rotate(20deg);
+        }
+        .logo-icon::after {
+            width: 25px;
+            height: 8px;
+            bottom: 15px;
+            right: 10px;
+            transform: rotate(-20deg);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-gold);
+        }
+        h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px dashed #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2::before {
+            content: "•";
+            color: var(--accent-gold);
+            font-size: 2rem;
+            line-height: 1;
+        }
+        h3 {
+            color: var(--primary-blue);
+            margin: 1.2rem 0 0.8rem;
+            font-size: 1.3rem;
+        }
+        .highlight {
+            background: linear-gradient(120deg, rgba(30,58,138,0.1) 0%, rgba(212,175,55,0.1) 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.2rem 0;
+            border-left: 3px solid var(--accent-gold);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        th {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+        }
+        td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .partners {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 1.5rem 0;
+        }
+        .partner-card {
+            flex: 1;
+            min-width: 250px;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1.2rem;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s;
+        }
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .partner-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .partner-card h4::before {
+            content: "▶";
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 1.5rem 0;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 5px;
+            height: calc(100% - 10px);
+            width: 2px;
+            background: var(--accent-gold);
+        }
+        .timeline-item {
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            border: 3px solid var(--accent-gold);
+        }
+        .timeline-year {
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-bottom: 0.3rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            .partners {
+                flex-direction: column;
+            }
+            .partner-card {
+                min-width: 100%;
+            }
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <h1>颌臻美<span style="color: var(--accent-gold)">HarmoAlign</span></h1>
+            </div>
+            <p class="tagline">维也纳颌学×AI驱动的专业隐形正畸解决方案</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="brand-strategy">
+            <h2>一、品牌战略定位</h2>
+            
+            <div class="highlight">
+                <h3>核心价值</h3>
+                <p><strong>技术差异化：</strong>融合维也纳颌学理念（颞下颌关节健康与咬合功能平衡）与AI智能诊断，实现关节友好型矫正方案</p>
+                <p><strong>专业壁垒：</strong>周茂强医生团队医学背书，专注复杂病例（深覆合/关节紊乱）领域</p>
+            </div>
+            
+            <h3>品牌命名与形象</h3>
+            <p><strong>命名：</strong> 颌臻美HarmoAlign（颌学平衡+精准矫正）或 维也纳微笑ViennaSmile</p>
+            <p><strong>视觉系统：</strong> 冷蓝色（专业感）与暖金色（美学感）双主色，LOGO融入牙齿几何与颌关节曲线</p>
+            
+            <h3>目标用户分层</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>用户类型</th>
+                        <th>核心需求</th>
+                        <th>产品匹配</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>6-18岁青少儿</td>
+                        <td>18-35岁成人</td>
+                        <td>隐形美观、避免关节不适</td>
+                        <td>全隐形方案+关节健康监测</td>
+                    </tr>
+                    <tr>
+                        <td>复杂病例患者</td>
+                        <td>安全解决深覆合/关节代偿</td>
+                        <td>周茂强团队定制方案</td>
+                    </tr>
+                    <tr>
+                        <td>正畸医生</td>
+                        <td>提升颌学诊断能力</td>
+                        <td>培训课程+AI辅助工具</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="product-system">
+            <h2>二、产品与技术体系</h2>
+            <h3>核心产品矩阵</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>产品线</th>
+                        <th>功能设计</th>
+                        <th>技术支撑</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>HarmoAlign Pro</strong></td>
+                        <td>维也纳颌学方案库+动态咬合模拟，预防关节紊乱</td>
+                        <td>齿序AI排牙软件</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HarmoAlign Lite</strong></td>
+                        <td>轻症快速矫正（6-8个月），适用简单病例</td>
+                        <td>云端自动化设计</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Doctor AI</strong></td>
+                        <td>5秒生成关节风险评估报告，智能推荐力学方案</td>
+                        <td>齿序多模态数据库</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="highlight">
+                <h3>技术亮点</h3>
+                <p>• 颌学AI引擎：结合CBCT/MRI数据与维也纳颌学参数，动态模拟矫正中咬合变化</p>
+                <p>• 智能防重启系统：基于3万+案例模型预测牙齿移动偏差，降低重启率37%</p>
+                <p>• 材料创新：梯度模量高分子材料</p>
+            </div>
+        </section>
+
+        <section id="operation-model">
+            <h2>三、运营模式设计</h2>
+            <div class="highlight">
+                <h3>三方协同闭环</h3>
+                <p><strong>周茂强团队</strong> → 医学IP+课程研发 → <strong>齿序科技</strong></p>
+                <p><strong>齿序科技</strong> → AI软件+设计云平台 → <strong>高诊科技</strong></p>
+                <p><strong>高诊科技</strong> → 医生端推广+患者流量 → <strong>终端诊所</strong></p>
+                <p><strong>终端诊所</strong> → 临床数据反馈/方案订单 → <strong>周茂强团队/齿序科技</strong></p>
+            </div>
+            
+            <h3>核心分工</h3>
+            <div class="partners">
+                <div class="partner-card">
+                    <h4>齿序科技</h4>
+                    <p>• 开发云端设计平台（含VTO颌学模拟模块）</p>
+                    <p>• 建立正畸医生协作社区</p>
+                </div>
+                <div class="partner-card">
+                    <h4>周茂强团队</h4>
+                    <p>• 维也纳颌学认证培训体系（基础课/高阶课）</p>
+                    <p>• 复杂病例方案审核</p>
+                </div>
+                <div class="partner-card">
+                    <h4>高诊科技</h4>
+                    <p>• To B：免费AI初筛工具 + 分期付款计划</p>
+                    <p>• To C：关节健康科普 + 社交媒体投放</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="marketing-strategy">
+            <h2>四、营销推广策略</h2>
+            
+            <h3>专业端：建立颌学矫正标准</h3>
+            <p>• 联合维也纳大学举办<strong>“东亚颌学正畸峰会”</strong></p>
+            <p>• 发布《隐形矫正关节保护白皮书》行业标准</p>
+            <p>• KOL医生计划：100名医生临床对比报告（传统方案 vs 颌学方案）</p>
+            
+            <h3>用户端：场景化渗透</h3>
+            <p>• 短视频话题 <strong>#小心隐形矫正伤关节#</strong> 科普传播</p>
+            <p>• 线上闭环：3D颌面评估 → 风险报告 → 诊所推荐</p>
+            
+            <h3>渠道策略</h3>
+            <p>• 高端诊所：HarmoAlign Pro联合品牌诊室（含远程会诊资格）</p>
+            <p>• 电商直营：HarmoAlign Lite + 家用口扫仪组合</p>
+        </section>
+
+        <section id="finance-plan">
+            <h2>五、财务与实施规划</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">Year 1</div>
+                    <p>• 签约500家诊所，培训200名认证医生</p>
+                    <p>• 品牌知名度进入行业TOP10</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Year 2-3</div>
+                    <p>• 推出儿童颌面发育干预产品线</p>
+                    <p>• 市占率超正雅/美立刻，累积10万+颌学案例</p>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3>核心优势总结</h3>
+                <p>1. 医学壁垒：维也纳颌学理念填补市场技术空白</p>
+                <p>2. 效率革命：AI实现5秒诊断，疗程缩短25%（24→18个月）</p>
+                <p>3. 商业闭环：培训→工具→产品→数据反馈生态体系</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 颌臻美HarmoAlign | 维也纳颌学×AI隐形正畸解决方案</p>
+            <p>齿序科技·周茂强正畸工作室·高诊科技联合呈现</p>
+        </div>
+    </footer>
+</body>
+</html>
