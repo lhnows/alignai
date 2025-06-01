@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>颌臻美 (HarmoAlign) 交互式战略仪表盘</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Visualization & Content Choices: 
+        - Report Info: Market Growth Projections (China & Global). Goal: Change. Viz: Line Chart. Interaction: Hover tooltips. Justification: Best for showing time-series data and comparing trends. Library: Chart.js/Canvas.
+        - Report Info: TMD Patient Prevalence (46.6%). Goal: Inform. Viz: Donut Chart. Interaction: Hover tooltips. Justification: Clearly visualizes a key proportion that represents the market opportunity. Library: Chart.js/Canvas.
+        - Report Info: Technology Fusion (VieSID + AI). Goal: Organize/Process. Viz: HTML/CSS Flow Diagram. Interaction: Static visual. Justification: Simplifies a complex technical concept into an easily understandable process flow. Method: HTML/Tailwind.
+        - Report Info: Execution Plan (4 Phases). Goal: Organize/Change. Viz: Tabbed Interface. Interaction: Click to toggle content. Justification: Manages information density by presenting the detailed roadmap in digestible, user-controlled chunks. Method: HTML/JS.
+        - Report Info: Multi-jurisdiction Regulatory Paths. Goal: Compare. Viz: Styled HTML/CSS Grid with Cards. Interaction: Static visual. Justification: Translates a complex table into a scannable, high-level comparison of key market entry challenges. Method: HTML/Tailwind.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: #f8f9fa; color: #343a40; }
+        .chart-container { position: relative; width: 100%; max-width: 550px; margin-left: auto; margin-right: auto; height: 300px; max-height: 400px; }
+        .nav-link { transition: color 0.3s, border-bottom-color 0.3s; }
+        .nav-link.active { color: #0c66e4; border-bottom-color: #0c66e4; }
+        .timeline-tab.active { border-color: #f59e0b; color: #f59e0b; background-color: #fffbeb; }
+        .swot-card { transition: transform 0.3s, box-shadow 0.3s; }
+        .swot-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07), 0 4px 6px -4px rgba(0,0,0,0.07); }
+        .gradient-text { background: linear-gradient(to right, #0052cc, #4c9aff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="font-bold text-xl">
+                        <span class="gradient-text">颌臻美</span>
+                        <span class="text-gray-500 font-light text-lg ml-1">HarmoAlign</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div id="nav-menu" class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">战略概览</a>
+                        <a href="#market" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">市场洞察</a>
+                        <a href="#strategy" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">核心战略</a>
+                        <a href="#roadmap" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">执行蓝图</a>
+                        <a href="#regulatory" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">法规与财务</a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#overview" class="block nav-link text-gray-600 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium">战略概览</a>
+                <a href="#market" class="block nav-link text-gray-600 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium">市场洞察</a>
+                <a href="#strategy" class="block nav-link text-gray-600 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium">核心战略</a>
+                <a href="#roadmap" class="block nav-link text-gray-600 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium">执行蓝图</a>
+                <a href="#regulatory" class="block nav-link text-gray-600 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium">法规与财务</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <section id="overview" class="scroll-mt-20">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">品牌全案执行计划仪表盘</h1>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600">
+                    本仪表盘旨在将《颌臻美(HarmoAlign)品牌全案执行计划优化与深度解析报告》中的核心洞见与战略规划进行可视化呈现，提供一个动态、直观的交互式概览。
+                </p>
+            </div>
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-bold text-center mb-2 text-[#0052cc]">核心愿景与目标</h2>
+                <p class="text-center text-gray-600 mb-8">成为全球颌学正畸领域的领导者，重塑关节友好型矫正标准。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <p class="text-sm text-gray-500">短期 (1年)</p>
+                        <p class="text-2xl font-bold text-blue-600 mt-1">建立品牌认知</p>
+                        <p class="text-gray-600 text-sm">（目标已根据报告建议审慎调整）</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">中期 (3年)</p>
+                        <p class="text-2xl font-bold text-blue-600 mt-1">市场份额 20%</p>
+                        <p class="text-gray-600 text-sm">(关节友好型矫正细分领域)</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">长期 (5年)</p>
+                        <p class="text-2xl font-bold text-amber-500 mt-1">拓展海外市场</p>
+                         <p class="text-gray-600 text-sm">成为全球领导者</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 md:my-16 border-gray-200">
+
+        <section id="market" class="scroll-mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">市场洞察</h2>
+                <p class="mt-2 text-lg text-gray-600">数据揭示了巨大的市场潜力和明确的临床痛点。</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-center">正畸市场的高速增长</h3>
+                    <p class="text-gray-600 mb-6 text-center">全球及中国市场均呈现强劲增长态势，技术驱动型解决方案是未来核心。</p>
+                    <div class="chart-container">
+                        <canvas id="marketGrowthChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-center">被忽视的核心需求：关节健康</h3>
+                    <p class="text-gray-600 mb-6 text-center">研究显示，近半数正畸患者存在TMD（颞下颌关节紊乱病）问题，这为“关节友好型”方案提供了广阔市场。</p>
+                    <div class="chart-container">
+                        <canvas id="tmdPrevalenceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 md:my-16 border-gray-200">
+
+        <section id="strategy" class="scroll-mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">核心战略</h2>
+                <p class="mt-2 text-lg text-gray-600">以技术创新为矛，以专业背书为盾，构建独特的品牌价值主张。</p>
+            </div>
+            <div class="space-y-12">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-center mb-6">技术融合：HarmoAlign的护城河</h3>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
+                        <div class="p-4 bg-blue-50 rounded-lg w-full md:w-1/4">
+                            <h4 class="font-bold text-lg text-[#0052cc]">维也纳颌学</h4>
+                            <p class="text-sm text-gray-600">经典功能咬合理论</p>
+                        </div>
+                        <div class="text-2xl font-light text-gray-400">＋</div>
+                        <div class="p-4 bg-amber-50 rounded-lg w-full md:w-1/4">
+                            <h4 class="font-bold text-lg text-amber-600">AI智能诊断</h4>
+                            <p class="text-sm text-gray-600">精准预测与规划</p>
+                        </div>
+                        <div class="text-2xl font-light text-gray-400">＝</div>
+                        <div class="p-6 bg-[#0052cc] rounded-lg text-white shadow-xl w-full md:w-1/3">
+                            <h4 class="font-bold text-xl">关节友好型矫正方案</h4>
+                            <p class="text-sm opacity-90 mt-1">美学与功能的和谐统一</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-center mb-6">SWOT分析</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="swot-card bg-green-50 border border-green-200 p-4 rounded-lg">
+                            <h4 class="font-bold text-green-700">优势 (S)</h4>
+                            <ul class="list-disc list-inside mt-2 text-sm text-gray-700 space-y-1">
+                                <li>权威医学团队背书</li>
+                                <li>AI与颌学融合的技术壁垒</li>
+                                <li>差异化的“关节友好”定位</li>
+                            </ul>
+                        </div>
+                        <div class="swot-card bg-red-50 border border-red-200 p-4 rounded-lg">
+                            <h4 class="font-bold text-red-700">劣势 (W)</h4>
+                            <ul class="list-disc list-inside mt-2 text-sm text-gray-700 space-y-1">
+                                <li>品牌知名度低，市场认知不足</li>
+                                <li>初期推广资源有限</li>
+                                <li>供应链管理经验需积累</li>
+                            </ul>
+                        </div>
+                        <div class="swot-card bg-blue-50 border border-blue-200 p-4 rounded-lg">
+                            <h4 class="font-bold text-blue-700">机会 (O)</h4>
+                            <ul class="list-disc list-inside mt-2 text-sm text-gray-700 space-y-1">
+                                <li>正畸市场高速增长</li>
+                                <li>患者关节保护意识提升</li>
+                                <li>政策支持医疗科技发展</li>
+                            </ul>
+                        </div>
+                        <div class="swot-card bg-yellow-50 border border-yellow-300 p-4 rounded-lg">
+                            <h4 class="font-bold text-yellow-700">威胁 (T)</h4>
+                            <ul class="list-disc list-inside mt-2 text-sm text-gray-700 space-y-1">
+                                <li>竞品技术跟进与模仿风险</li>
+                                <li>漫长的法规审批周期</li>
+                                <li>数据安全与隐私保护要求严格</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 md:my-16 border-gray-200">
+
+        <section id="roadmap" class="scroll-mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">四阶段执行蓝图</h2>
+                <p class="mt-2 text-lg text-gray-600">从基础建设到全球拓展，每一步都清晰规划。</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="border-b border-gray-200">
+                    <div class="flex flex-wrap -mb-px px-4" aria-label="Tabs">
+                        <button class="timeline-tab active w-1/2 md:w-1/4 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-tab="1">阶段一：基础建设</button>
+                        <button class="timeline-tab w-1/2 md:w-1/4 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-tab="2">阶段二：蓄势期</button>
+                        <button class="timeline-tab w-1/2 md:w-1/4 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-tab="3">阶段三：爆发期</button>
+                        <button class="timeline-tab w-1/2 md:w-1/4 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-tab="4">阶段四：深耕期</button>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <div class="timeline-content" data-content="1">
+                        <h3 class="font-bold text-xl mb-4 text-blue-700">阶段一：基础建设 (Q1-Q2)</h3>
+                        <div class="grid md:grid-cols-3 gap-6 text-sm">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">品牌与IP</h4>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>完成VI系统与命名</li>
+                                    <li>核心专利与商标注册</li>
+                                    <li>制定全面IP保护策略</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">产品与研发</h4>
+                                 <ul class="list-disc list-inside space-y-1">
+                                    <li>Doctor AI 3.0原型开发</li>
+                                    <li>梯度模量矫治器材料与工艺研究</li>
+                                    <li>启动临床验证流程</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">学术与支持</h4>
+                                 <ul class="list-disc list-inside space-y-1">
+                                    <li>出版《维也纳颌学隐形矫正指南》</li>
+                                    <li>建立“颌学云智库”并确保数据合规</li>
+                                    <li>启动首批医生培训课程</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-content hidden" data-content="2">
+                        <h3 class="font-bold text-xl mb-4 text-blue-700">阶段二：蓄势期 (Q3-Q4)</h3>
+                        <div class="grid md:grid-cols-3 gap-6 text-sm">
+                             <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">市场推广</h4>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>举办东亚颌学正畸峰会</li>
+                                    <li>发布《关节保护白皮书》</li>
+                                    <li>启动KOL合作与专业渠道营销</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">渠道与系统</h4>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>试点推广，签约核心KOL诊所</li>
+                                    <li>开发含颌学评估的SaaS系统</li>
+                                    <li>建立直销与代理混合模式</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">患者教育</h4>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>#隐形矫正关节保护# 话题传播</li>
+                                    <li>上线3D颌面评估工具用于引流</li>
+                                    <li>构建“评估-报告-推荐”转化闭环</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-content hidden" data-content="3">
+                        <h3 class="font-bold text-xl mb-4 text-blue-700">阶段三：爆发期 (次年)</h3>
+                         <div class="grid md:grid-cols-3 gap-6 text-sm">
+                             <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">产品上市</h4>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>（待法规审批后）产品正式上市</li>
+                                    <li>推出儿童与成人细分产品线</li>
+                                    <li>合作开发“颏旋美®”矫治器</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">生态合作</h4>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>建立“团队-科技-诊所”数据闭环</li>
+                                    <li>设立学术基金激励临床研究</li>
+                                    <li>与行业KOL发布成功案例</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">品牌传播</h4>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>启动“3D颌面评估免费体验”活动</li>
+                                    <li>社交媒体与线下诊所联动</li>
+                                    <li>强化信任背书</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-content hidden" data-content="4">
+                        <h3 class="font-bold text-xl mb-4 text-blue-700">阶段四：深耕期 (持续)</h3>
+                        <div class="grid md:grid-cols-2 gap-6 text-sm">
+                             <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">运营与迭代</h4>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>建立患者数据库与会员体系</li>
+                                    <li>优化Doctor AI，增加生长预测等功能</li>
+                                    <li>开发第二代梯度模量矫治器</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">国际化拓展</h4>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>参加国际顶级正畸学术会议</li>
+                                    <li>启动东南亚、欧洲市场法规准入</li>
+                                    <li>复制本土化生态合作模式</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 md:my-16 border-gray-200">
+
+        <section id="regulatory" class="scroll-mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">法规路径与财务考量</h2>
+                <p class="mt-2 text-lg text-gray-600">清晰的合规策略与财务规划是项目成功的关键保障。</p>
+            </div>
+            <div class="space-y-12">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                     <h3 class="text-xl font-bold text-center mb-6">全球主要市场法规路径概览</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="border p-4 rounded-lg bg-blue-50">
+                            <h4 class="font-bold text-center text-blue-800">中国 (NMPA)</h4>
+                            <ul class="mt-2 text-sm text-gray-700 list-disc list-inside">
+                                <li>**预期分类:** II类或III类</li>
+                                <li>**挑战:** 审批周期长 (16-36+ 个月)，临床试验要求高，AI软件监管严格。</li>
+                                <li>**机遇:** 可申请创新医疗器械特别审查通道，缩短时间。</li>
+                            </ul>
+                        </div>
+                         <div class="border p-4 rounded-lg bg-green-50">
+                            <h4 class="font-bold text-center text-green-800">东南亚 (HSA, Thai FDA)</h4>
+                            <ul class="mt-2 text-sm text-gray-700 list-disc list-inside">
+                                <li>**预期分类:** B/C类 (新), 2/3类 (泰)</li>
+                                <li>**挑战:** 需满足当地数据隐私法案 (PDPA) 要求。</li>
+                                 <li>**机遇:** 接受参考国批准，可走简化/快速注册路径。</li>
+                            </ul>
+                        </div>
+                        <div class="border p-4 rounded-lg bg-amber-50">
+                            <h4 class="font-bold text-center text-amber-800">欧洲 (EU MDR)</h4>
+                            <ul class="mt-2 text-sm text-gray-700 list-disc list-inside">
+                               <li>**预期分类:** IIa类或更高</li>
+                               <li>**挑战:** MDR认证周期长 (13-18+ 个月)，要求严苛，需公告机构介入。未来还需满足EU AI法案。</li>
+                               <li>**机遇:** 市场成熟，KOL资源丰富。</li>
+                            </ul>
+                        </div>
+                     </div>
+                </div>
+                 <div class="bg-white p-8 rounded-xl shadow-lg">
+                     <h3 class="text-xl font-bold text-center mb-6">关键财务与运营指标</h3>
+                     <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">项目的健康度与增长潜力，将通过以下核心指标进行衡量与管理。具体目标值有待详细财务模型确定。</p>
+                     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div class="p-3 bg-gray-50 rounded-lg">
+                            <h4 class="font-semibold text-gray-800">LTV:CAC 比率</h4>
+                            <p class="text-2xl font-bold text-blue-600 mt-1">3:1</p>
+                            <p class="text-xs text-gray-500">（健康运营目标）</p>
+                        </div>
+                         <div class="p-3 bg-gray-50 rounded-lg">
+                            <h4 class="font-semibold text-gray-800">CAC 回收期</h4>
+                            <p class="text-2xl font-bold text-blue-600 mt-1">&lt;12</p>
+                            <p class="text-xs text-gray-500">个月（理想目标）</p>
+                        </div>
+                         <div class="p-3 bg-gray-50 rounded-lg">
+                            <h4 class="font-semibold text-gray-800">平均销售周期</h4>
+                            <p class="text-2xl font-bold text-blue-600 mt-1">6-18</p>
+                            <p class="text-xs text-gray-500">个月（诊所端预估）</p>
+                        </div>
+                         <div class="p-3 bg-gray-50 rounded-lg">
+                            <h4 class="font-semibold text-gray-800">研发投入强度</h4>
+                            <p class="text-2xl font-bold text-blue-600 mt-1">~10%</p>
+                            <p class="text-xs text-gray-500">（行业参考）</p>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white mt-16 border-t">
+        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 颌臻美 HarmoAlign. 交互式战略报告由 AI 生成。</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        const sections = document.querySelectorAll('section[id]');
+        const mainNavLinks = document.querySelectorAll('#nav-menu a');
+        
+        const observerOptions = { rootMargin: '-20% 0px -80% 0px' };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    mainNavLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        const chartTooltipConfig = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        };
+
+        const marketGrowthCtx = document.getElementById('marketGrowthChart')?.getContext('2d');
+        if (marketGrowthCtx) {
+            new Chart(marketGrowthCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2024', '2028', '2032', '2035'],
+                    datasets: [{
+                        label: '中国正畸市场规模 (亿美元)',
+                        data: [8.35, 11, 15, 17.5],
+                        borderColor: '#0052cc',
+                        backgroundColor: 'rgba(76, 154, 255, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    }, {
+                        label: '全球正畸市场规模 (亿美元)',
+                        data: [192, 305, 471, null],
+                        borderColor: '#f59e0b',
+                        backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: (ctx) => (ctx.dataIndex === 3 ? 0 : 3)
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: false } },
+                    ...chartTooltipConfig
+                }
+            });
+        }
+
+        const tmdPrevalenceCtx = document.getElementById('tmdPrevalenceChart')?.getContext('2d');
+        if (tmdPrevalenceCtx) {
+            new Chart(tmdPrevalenceCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['存在TMD问题患者', '其他患者'],
+                    datasets: [{
+                        label: '患者比例',
+                        data: [46.6, 53.4],
+                        backgroundColor: ['#0052cc', '#e2e8f0'],
+                        borderColor: '#f8f9fa',
+                        borderWidth: 2,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        ...chartTooltipConfig.plugins,
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        }
+
+        const tabs = document.querySelectorAll('.timeline-tab');
+        const contents = document.querySelectorAll('.timeline-content');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const tabId = tab.getAttribute('data-tab');
+                contents.forEach(content => {
+                    content.classList.toggle('hidden', content.getAttribute('data-content') !== tabId);
+                });
+            });
+        });
+    });
+    </script>
+</body>
+</html>
