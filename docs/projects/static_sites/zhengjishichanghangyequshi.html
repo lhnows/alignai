@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正畸市场行业趋势与机遇信息图</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Visualization & Content Choices: 
+        - Data Point: Global & China Market Growth. Goal: Change. Viz: Line Chart. Justification: Best for showing trends over time. Library: Chart.js/Canvas. Confirming NO SVG.
+        - Data Point: Patients with Joint Issues. Goal: Inform. Viz: Donut Chart. Justification: Excellent for displaying part-to-whole proportions. Library: Chart.js/Canvas. Confirming NO SVG.
+        - Data Point: Competitive Landscape. Goal: Compare. Viz: Styled HTML/CSS Cards. Justification: Allows for qualitative comparison of major players and their strategic gaps. Method: HTML/Tailwind. Confirming NO SVG.
+        - Data Point: Core Technology Fusion (VieSID + AI). Goal: Organize/Process. Viz: HTML/CSS Flow Diagram. Justification: Visually represents the process flow and technological synergy without complex text. Method: HTML/Tailwind. Confirming NO SVG/Mermaid.
+        - Data Point: SWOT Analysis. Goal: Organize/Compare. Viz: 2x2 Styled HTML/CSS Grid. Justification: The standard, most intuitive way to present SWOT findings. Method: HTML/Tailwind. Confirming NO SVG.
+    -->
+    <style>
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: #f0f4f8; }
+        .chart-container { position: relative; width: 100%; height: 280px; max-width: 600px; margin-left: auto; margin-right: auto; max-height: 320px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; max-height: 400px; } }
+        .gradient-text { background: linear-gradient(90deg, #118AB2, #06D6A0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .stat-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+    </style>
+</head>
+<body class="text-gray-700">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-8 md:my-12">
+            <h1 class="text-3xl md:text-5xl font-bold gradient-text tracking-tight">颌学正畸市场：蓝海机遇与技术前沿</h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">一份关于技术驱动下正畸行业新趋势的深度视觉解析</p>
+        </header>
+
+        <main class="space-y-16 md:space-y-24">
+
+            <section id="opportunity">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#073B4C]">1. 时代机遇：一个高速增长的千亿级赛道</h2>
+                    <p class="mt-3 text-md md:text-lg text-gray-500">全球正畸市场正以前所未有的速度扩张，技术创新是驱动增长的核心引擎。</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+                    <div class="bg-white p-6 rounded-xl shadow-lg stat-card">
+                        <h3 class="font-bold text-xl mb-4 text-[#118AB2]">全球与中国市场规模预测</h3>
+                        <p class="text-gray-600 mb-4">报告预测，中国市场规模在未来十年将翻倍，而全球市场复合年增长率（CAGR）高达23.1%，市场潜力巨大。</p>
+                        <div class="chart-container">
+                            <canvas id="marketGrowthChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg stat-card">
+                        <h3 class="font-bold text-xl mb-4 text-[#118AB2]">被忽视的巨大需求：关节健康</h3>
+                        <p class="text-gray-600 mb-4">在追求美观的背后，超过30%的正畸患者伴有关节问题。这一普遍存在的痛点，正是下一片蓝海市场的入口。</p>
+                        <div class="chart-container">
+                            <canvas id="patientNeedsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="landscape">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#073B4C]">2. 竞争格局：巨头林立与技术缺口</h2>
+                    <p class="mt-3 text-md md:text-lg text-gray-500">主流品牌占据基础市场，但在处理复杂病例及TMD问题上，仍存在明显的解决方案空白。</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#FFD166]">
+                        <h3 class="font-bold text-xl text-gray-800">主流品牌（如：隐适美, 时代天使）</h3>
+                        <p class="mt-2 text-green-600 font-semibold">优势：强大的品牌认知度，广泛的市场覆盖。</p>
+                        <p class="mt-2 text-red-600 font-semibold">待完善：针对伴有TMD等复杂病例的系统性解决方案相对不足，为新进入者留下市场机会。</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#06D6A0]">
+                         <h3 class="font-bold text-xl text-gray-800">市场新机遇</h3>
+                        <p class="mt-2 text-gray-600">医生端需要更强大的工具来处理复杂病例、规避治疗风险；患者端则期待一种既能变美又能保护关节健康的矫正方案。技术驱动的差异化是破局关键。</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="solution">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#073B4C]">3. 破局之道：颌臻美 (HarmoAlign) 的技术融合</h2>
+                    <p class="mt-3 text-md md:text-lg text-gray-500">以“颌学平衡，精准矫正”为核心，通过融合经典颌学与前沿AI技术，直击市场痛点。</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-2xl">
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-center">
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <h4 class="font-bold text-lg text-[#118AB2]">维也纳颌学 (VieSID)</h4>
+                            <p class="text-sm text-gray-600">经典理论基石</p>
+                        </div>
+                        <div class="text-4xl font-thin text-gray-400">+</div>
+                        <div class="p-4 bg-green-50 rounded-lg">
+                            <h4 class="font-bold text-lg text-[#06D6A0]">AI 智能诊断</h4>
+                            <p class="text-sm text-gray-600">精准预测与规划</p>
+                        </div>
+                        <div class="text-4xl font-thin text-gray-400">=</div>
+                        <div class="p-6 bg-[#118AB2] rounded-lg text-white shadow-lg">
+                            <h4 class="font-bold text-xl">关节友好型矫正方案</h4>
+                            <p class="text-sm opacity-90">实现美学与功能的和谐统一</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="swot">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#073B4C]">4. 战略定位：全面审视内外环境</h2>
+                    <p class="mt-3 text-md md:text-lg text-gray-500">清晰的SWOT分析为品牌在复杂市场中的航行指明方向。</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg text-[#06D6A0] mb-2">优势 (S)</h3>
+                        <ul class="list-disc list-inside space-y-1 text-gray-600">
+                            <li>周茂强团队的医学权威背书</li>
+                            <li>AI智能诊断技术构筑护城河</li>
+                            <li>“关节友好”的差异化产品体系</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg text-[#EF476F] mb-2">劣势 (W)</h3>
+                        <ul class="list-disc list-inside space-y-1 text-gray-600">
+                            <li>品牌知名度从零开始</li>
+                            <li>初期市场推广资源受限</li>
+                            <li>复杂的供应链管理经验不足</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg text-[#118AB2] mb-2">机会 (O)</h3>
+                        <ul class="list-disc list-inside space-y-1 text-gray-600">
+                            <li>正畸市场持续高速增长</li>
+                            <li>医疗科技创新获政策支持</li>
+                            <li>患者对关节保护的意识觉醒</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg text-[#FFD166] mb-2">威胁 (T)</h3>
+                        <ul class="list-disc list-inside space-y-1 text-gray-600">
+                            <li>竞争对手的技术模仿风险</li>
+                            <li>医生端培训体系的成本与挑战</li>
+                            <li>日益严格的数据安全与隐私法规</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="text-center mt-16 md:mt-24 py-6 border-t">
+            <p class="text-gray-500">数据来源：《颌臻美 (HarmoAlign) 品牌全案执行计划优化与深度解析报告》</p>
+            <p class="text-sm text-gray-400 mt-2">© 2025 信息图由AI生成</p>
+        </footer>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const chartTooltipConfig = {
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                          return label.join(' ');
+                        } else {
+                          return label;
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    const marketGrowthCtx = document.getElementById('marketGrowthChart').getContext('2d');
+    new Chart(marketGrowthCtx, {
+        type: 'line',
+        data: {
+            labels: ['2024', '2027', '2030', '2032', '2035'],
+            datasets: [{
+                label: ['中国市场规模', '(亿美元)'],
+                data: [8.35, 11.5, 14.5, 16, 17.5],
+                borderColor: '#118AB2',
+                backgroundColor: 'rgba(17, 138, 178, 0.1)',
+                fill: true,
+                tension: 0.4
+            }, {
+                label: ['全球市场规模', '(亿美元)'],
+                data: [150, 230, 350, 471, null],
+                borderColor: '#06D6A0',
+                backgroundColor: 'rgba(6, 214, 160, 0.1)',
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    ticks: {
+                       callback: function(value) {
+                           return '$' + value + 'B';
+                       }
+                    }
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            return tooltipItems[0].dataset.label.join(' ');
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    const patientNeedsCtx = document.getElementById('patientNeedsChart').getContext('2d');
+    const patientNeedsLabels = [
+        ['关注关节健康的', '正畸患者'],
+        '其他正畸需求患者'
+    ];
+    new Chart(patientNeedsCtx, {
+        type: 'doughnut',
+        data: {
+            labels: patientNeedsLabels,
+            datasets: [{
+                data: [30, 70],
+                backgroundColor: ['#FFD166', '#118AB2'],
+                borderColor: ['#fff', '#fff'],
+                borderWidth: 2,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join('');
+                            } else {
+                              return label;
+                            }
+                        }
+                    }
+                },
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                            size: 12
+                        },
+                        generateLabels: function(chart) {
+                            const data = chart.data;
+                            if (data.labels.length && data.datasets.length) {
+                                return data.labels.map(function(label, i) {
+                                    const meta = chart.getDatasetMeta(0);
+                                    const style = meta.controller.getStyle(i);
+                                    const labelText = Array.isArray(label) ? label.join('') : label;
+                                    return {
+                                        text: labelText,
+                                        fillStyle: style.backgroundColor,
+                                        strokeStyle: style.borderColor,
+                                        lineWidth: style.borderWidth,
+                                        hidden: isNaN(data.datasets[0].data[i]) || meta.data[i].hidden,
+                                        index: i
+                                    };
+                                });
+                            }
+                            return [];
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+
+</body>
+</html>
