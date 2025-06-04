@@ -21,6 +21,7 @@ https://github.com/MIT-SPARK/TEASER-plusplus
 - 启动docker镜像，将代码包根目录映射到docker 容器的 /app目录
 命令如下：
 `docker run -it -v ./:/app teaserpp:latest /bin/bash`
+windows命令为 `docker run -it -v %cd%:/app teaserpp:latest /bin/bash`
 - 此时已进入docker，进入app目录
 ![img1](imgs/1748941047445.jpg)
 - 输入两个ply进行配准的代码位于examples/teaser_cpp_fpfh_ply/teaser_cpp_fpfh.cc，进入该目录打开文件，图中61行、67行可更改ply路径
