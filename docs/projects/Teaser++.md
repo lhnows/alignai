@@ -98,3 +98,46 @@ Estimated translation:
 Time taken (s): 1.05065
 =====================================
 ```
+
+## 镜像制作方法
+
+* 1. 下载基础docker镜像 `docker pull ubuntu`
+* 2. 启动镜像 `docker run -it ubuntu /bin/bash`
+* 3. 安装依赖
+```
+apt-get update
+apt-get install -y git cmake build-essential libboost-all-dev libeigen3-dev pybind11-dev libpcl-dev
+
+```
+* 4. 下载teaser++代码 `git clone https://github.com/MIT-SPARK/TEASER-plusplus.git`
+* 5. 编译teaser++
+  * 进入代码目录 `cd TEASER-plusplus`
+  * 新建build目录 `mkdir build`
+  * 进入build目录 `cd build`
+  * 编译 `cmake ..`
+  * 编译 `make -j4`
+  * 编译完成后,`make install`
+* 6. 验证安装
+  * 进入examples目录 `cd examples/teaser_cpp_ply`
+  * 新建build目录 `mkdir build`
+  * 进入build目录 `cd build`
+  * 编译 `cmake ..`
+  * 编译 `make`
+  * 执行 `./teaser_cpp_ply`
+* 7. 打包镜像
+  * 退出docker容器 `exit`
+  * 打包镜像 `docker commit -m "teaser++" -a "teaser++" 容器id teaserpp:latest`
+  * 保存镜像 `docker save teaserpp:latest > teaserpp_dockerimage.tar`
+```
+## 镜像的使用方法
+* 1. 下载镜像 `docker load < teaserpp_dockerimage.tar`
+* 2. 准备example代码，进入example目录 `cd examples` （可以使用上面的代码）
+* 3. 启动镜像 `docker run -it -v ./:/app teaserpp:latest /bin/bash`
+* 4. 进入app目录 `cd /app`
+* 5. 进入example代码目录 `cd teaser_cpp_ply`
+* 6. 新建build目录 `mkdir build`
+* 7. 进入build目录 `cd build`
+* 8. 编译 `cmake..`
+* 9. 编译 `make`
+* 10. 执行 `./teaser_cpp_ply`
+```
