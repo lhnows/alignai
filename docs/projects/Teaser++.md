@@ -130,7 +130,11 @@ apt-get install -y git cmake build-essential libboost-all-dev libeigen3-dev pybi
   * 保存镜像 `docker save teaserpp:latest > teaserpp_dockerimage.tar`
 ```
 ## 镜像的使用方法
-* 1. 下载镜像 `docker load < teaserpp_dockerimage.tar`
+**下载镜像**
+通过网盘分享的文件：teaserpp_dockerimage-aptpcl.tar
+链接: https://pan.baidu.com/s/15HxOJatiNzBDkiGMMN7Zbw?pwd=ad5a 提取码: ad5a 
+--来自百度网盘超级会员v9的分享
+* 1. 导入镜像 `docker load < teaserpp_dockerimage.tar`
 * 2. 准备example代码，进入example目录 `cd examples` （可以使用上面的代码）
 * 3. 启动镜像 `docker run -it -v ./:/app teaserpp:latest /bin/bash`
 * 4. 进入app目录 `cd /app`
