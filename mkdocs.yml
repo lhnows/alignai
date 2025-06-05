@@ -21,6 +21,8 @@ nav:
       - 口腔医学:
         - 专家共识: "research/口腔医学/专家共识.md"
         - IEEE口腔AI论文: "research/口腔医学/IEEE口腔AI论文.md"
+      - 宠物影像:
+        - 影像设备市场分析: "research/宠物影像/宠物医疗影像设备市场分析.md"
   - 项目: 
       - MASt3R-SLAM: "projects/MASt3R-SLAM.md"
       - 基础环境安装: "projects/环境安装.md"
