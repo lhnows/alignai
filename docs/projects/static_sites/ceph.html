@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嵌入金山文档</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            padding: 20px 0;
+            margin: 0;
+            background: linear-gradient(90deg, #4b6cb7, #182848);
+            color: white;
+        }
+        .iframe-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9比例 */
+            height: 0;
+            overflow: hidden;
+        }
+        .iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .note {
+            text-align: center;
+            padding: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>头影测量</h1>
+        <div class="iframe-wrapper">
+            <iframe 
+                src="https://www.kdocs.cn/wo/sl/v14ewQAX" 
+                allowfullscreen
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                title="金山文档嵌入示例"
+            ></iframe>
+        </div>
+        <p class="note">提示：若内容无法加载，请检查网络或确认文档权限设置</p>
+    </div>
+</body>
+</html>
