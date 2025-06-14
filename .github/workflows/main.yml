@@ -29,6 +29,11 @@ jobs:
           chmod +x /usr/local/bin/ossutil
           ossutil --version
 
+      - name: Deploy to EdgeOne Pages
+        run: npx edgeone pages deploy ./site -n alignai -t ${{ secrets.EDGEONE_API_TOKEN }}
+        env:
+          EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
+
       - name: Upload to Aliyun OSS
         env:
           ENDPOINT: ${{ secrets.ALIYUN_ENDPOINT }}
