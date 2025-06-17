@@ -23,6 +23,7 @@ jobs:
     - name: Install dependencies
       run: |
         curl -LsSf https://astral.sh/uv/install.sh | sh
+        cd daily-arXiv-ai-enhanced
         uv sync
     - name: Run script
       run: |
