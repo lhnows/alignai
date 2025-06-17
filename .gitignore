@@ -1,1 +1,16 @@
 .DS_Store
+
+# Python-generated files
+daily-arXiv-ai-enhanced/__pycache__/
+*.py[oc]
+daily-arXiv-ai-enhanced/build/
+daily-arXiv-ai-enhanced/dist/
+daily-arXiv-ai-enhanced/wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+daily-arXiv-ai-enhanced/ai/.env
+daily-arXiv-ai-enhanced/test/*
+daily-arXiv-ai-enhanced/.idea/
+daily-arXiv-ai-enhanced/.cursorrules
