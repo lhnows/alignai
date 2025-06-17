@@ -32,6 +32,7 @@ jobs:
         export LANGUAGE="${{ vars.LANGUAGE }}"
         export CATEGORIES="${{ vars.CATEGORIES }}"
         export MODEL_NAME="${{ vars.MODEL_NAME }}"
+        cd daily-arXiv-ai-enhanced
         bash run.sh
     - name: commit
       run: |
