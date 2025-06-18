@@ -27,6 +27,7 @@ jobs:
         pip install dotenv
     - name: Run script
       run: |
+        source .venv/bin/activate
         export OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
         export OPENAI_BASE_URL=${{ secrets.OPENAI_BASE_URL }}
         export LANGUAGE="${{ vars.LANGUAGE }}"
