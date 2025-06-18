@@ -58,6 +58,8 @@ jobs:
           working-directory: ./site # 如果你的项目在子目录
           
       - name: Deploy to EdgeOne Pages
-        run: npx edgeone pages deploy ./site -n alignai -t ${{ secrets.EDGEONE_API_TOKEN }}
+        run: 
+          rm -rf ./site/search
+          npx edgeone pages deploy ./site -n alignai -t ${{ secrets.EDGEONE_API_TOKEN }}
         env:
           EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
