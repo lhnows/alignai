@@ -56,10 +56,12 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} # 必需
           vercel-args: '--prod' # 传递给 vercel deploy 的额外参数，例如 --prod 表示部署到生产环境
           working-directory: ./site # 如果你的项目在子目录
-          
+
+
+      # edgeone 限制文件尺寸25M,需要移除search文件
+      - name: Remove search folder
+        run: rm -rf ./site/search
       - name: Deploy to EdgeOne Pages
-        run: 
-          rm -rf ./site/search
-          npx edgeone pages deploy ./site -n alignai -t ${{ secrets.EDGEONE_API_TOKEN }}
+        run: npx edgeone pages deploy ./site -n alignai -t ${{ secrets.EDGEONE_API_TOKEN }}
         env:
           EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
