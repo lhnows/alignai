@@ -24,6 +24,7 @@ jobs:
         curl -LsSf https://astral.sh/uv/install.sh | sh
         cd daily-arXiv-ai-enhanced
         uv sync
+        pip install dotenv
     - name: Run script
       run: |
         export OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
