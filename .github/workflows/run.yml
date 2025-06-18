@@ -46,6 +46,8 @@ jobs:
         fi
         git commit -m "update"
     - name: Pull latest changes and push
+      permissions:
+        contents: write
       run: |
         # 设置Git配置以处理自动合并
         git config pull.rebase true
