@@ -37,7 +37,7 @@ jobs:
       run: |
         git config --global user.email "${{ vars.EMAIL }}"
         git config --global user.name "${{ vars.NAME }}"
-        git add .
+        git add ./docs
         # 检查是否有变更需要提交
         if git diff --staged --quiet; then
           echo "No changes to commit"
