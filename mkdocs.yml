@@ -9,6 +9,8 @@ theme:
     - navigation.tabs.sticky
 nav:
   - 首页: "index.md"
+  - PapersWithCode速递: "ppwcode.md"
+  - Arxiv论文速递: "Arxiv.md"
   - 研报: 
 
       - Google MedGemma: "research/Google MedGemma.md"
@@ -32,6 +34,7 @@ nav:
       - apitable: "projects/apitable.md"
       - 在线Demo: "projects/在线Demo.md"
       - 静态页: "projects/静态页.md"
-  - Arxiv论文速递: "Arxiv.md"
+  
+  
       #- 2026: "Arxiv/2026.md"
   - "license.md"
