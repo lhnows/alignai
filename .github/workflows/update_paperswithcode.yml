@@ -1,0 +1,38 @@
+
+name: update_paperswithcode
+
+on:
+  schedule:
+    - cron: "30 16 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.PAT_TOKEN }}
+
+
+    - name: Move all .md files from source to target, overwriting existing ones # 3. 移动文件并覆盖
+      run: |
+        git clone https://github.com/lhnows/daily_papers_code.git
+        mv -f daily_papers_code/papers/*.md  docs/ppwcode
+        mv -f daily_papers_code/README.md docs/ppwcode.md
+        rm -rf  daily_papers_code
+
+    - name: commit
+      run: |
+    
+        git config --global user.email "${{ vars.EMAIL }}"
+        git config --global user.name "${{ vars.NAME }}"
+        git add ./docs
+        # 检查是否有变更需要提交
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+        git commit -m "update"
