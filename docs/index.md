@@ -24,7 +24,7 @@
 
 ## **🙋‍♂️ 贡献与反馈**
 
-如果你对内容有任何建议或发现错误，欢迎通过 GitHub issue 或 pull request 提出。
+如果你对内容有任何建议或发现错误，欢迎通过 [GitHub issue](https://github.com/lhnows/alignai/issues) 提出。
 
 
 

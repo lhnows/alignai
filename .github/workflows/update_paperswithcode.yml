@@ -3,7 +3,7 @@ name: update_paperswithcode
 
 on:
   schedule:
-    - cron: "30 16 * * *"
+    - cron: "30 6 * * *"
   workflow_dispatch:
 
 jobs:
