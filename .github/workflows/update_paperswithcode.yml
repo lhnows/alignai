@@ -20,6 +20,7 @@ jobs:
     - name: Move all .md files from source to target, overwriting existing ones # 3. 移动文件并覆盖
       run: |
         git clone https://github.com/lhnows/daily_papers_code.git
+        mkdir -p "docs/ppwcode"
         mv -f daily_papers_code/papers/*.md  docs/ppwcode/
         mv -f daily_papers_code/README.md docs/ppwcode.md
         rm -rf  daily_papers_code
