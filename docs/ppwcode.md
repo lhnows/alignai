@@ -5,4 +5,4 @@
 **最新更新：2025-06-18**
 
 ## 每日更新列表
-- [papers_2025-06-18.md](papers/papers_2025-06-18.md)
+- [papers_2025-06-18.md](ppwcode/papers_2025-06-18.md)
