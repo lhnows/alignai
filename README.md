@@ -7,6 +7,6 @@
 
 ## **🚀 每日更新**
 
-* ### [**Papers With Code 最新**](ppwcode.md)   **查看每日从 Papers With Code 抓取并整理的最新论文及其代码链接。紧跟最新的 AI 模型、数据集和基准测试。**
+* ### [**GitHub & Arxiv 最新**](ppwcode.md)   **查看每日从 Papers With Code 抓取并整理的最新论文及其代码链接。紧跟最新的 AI 模型、数据集和基准测试。**
 
 * ### [**ArXiv 每日精选**](Arxiv.md)   **浏览每日从 ArXiv 筛选出的高质量预印本。涵盖机器学习、计算机视觉、自然语言处理等多个领域的热门研究。**

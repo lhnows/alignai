@@ -9,7 +9,7 @@ theme:
     - navigation.tabs.sticky
 nav:
   - 首页: "index.md"
-  - PapersWithCode速递: "ppwcode.md"
+  - GitHub & Arxiv: "ppwcode.md"
   - Arxiv论文速递: "Arxiv.md"
   - 研报: 
       - Python点云库对比分析:"research/Python点云库对比分析.md"
