@@ -12,7 +12,7 @@ nav:
   - GitHub & Arxiv: "ppwcode.md"
   - Arxiv论文速递: "Arxiv.md"
   - 研报: 
-      - Python点云库对比分析:"research/Python点云库对比分析.md"
+      - Python点云库对比分析: "research/Python点云库对比分析.md"
       - Google MedGemma: "research/Google MedGemma.md"
       - 图像去雾: "research/图像去雾算法研究_.md"
       - 点云转CAD: "research/点云转CAD.md"
