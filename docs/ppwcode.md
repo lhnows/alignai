@@ -2,9 +2,10 @@
 
 本项目每天自动更新 最新论文和配套代码，并生成 Markdown 文件。
 
-**最新更新：2025-07-01**
+**最新更新：2025-07-02**
 
 ## 每日更新列表
+- [papers_2025-07-02.md](ppwcode/papers_2025-07-02.md)
 - [papers_2025-07-01.md](ppwcode/papers_2025-07-01.md)
 - [papers_2025-06-28.md](ppwcode/papers_2025-06-28.md)
 - [papers_2025-06-27.md](ppwcode/papers_2025-06-27.md)
