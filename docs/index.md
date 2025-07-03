@@ -1,6 +1,9 @@
 # 欢迎来到AlignAI
 
 
+欢迎关注我的公众号
+![](assets/images/wechat_pub.JPG)
+
 
 ## **📚 最新论文与代码更新**
 
@@ -29,5 +32,3 @@
 
 
 
-欢迎关注我的公众号
-![](assets/images/wechat_pub.JPG)
