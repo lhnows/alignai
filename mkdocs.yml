@@ -28,6 +28,8 @@ nav:
         - 影像设备市场分析: "research/宠物影像/宠物医疗影像设备市场分析.md"
       - 手部X光骨龄检测:
         - 设备: "research/手部X光骨龄检测设备.md"
+      - RealsSense:
+        - RealSense深入介绍 : "research/RealSense深入介绍.md"
   - 项目: 
       - MASt3R-SLAM: "projects/MASt3R-SLAM.md"
       - 基础环境安装: "projects/环境安装.md"
