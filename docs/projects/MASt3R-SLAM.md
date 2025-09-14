@@ -82,7 +82,7 @@ gunzip -c mast3r-slam-cu118.tar.gz | docker load
 ### **启动容器**
 ```
 # 进入到代码根目录执行  
-sudo docker run --gpus all   --shm-size=8g  -it -v ./:/app  triplanegaussian:latest /bin/bash
+sudo docker run --gpus all   --shm-size=8g  -it -v ./:/app  mast3r-slam:latest /bin/bash
 ```
 ### **运行Demo**
 ```
