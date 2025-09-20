@@ -31,18 +31,18 @@ jobs:
 
       
 
-      - name: Upload to Aliyun OSS
-        env:
-          ENDPOINT: ${{ secrets.ALIYUN_ENDPOINT }}
-          BUCKET: ${{ secrets.ALIYUN_BUCKET_NAME }}
-          ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
-          ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
-        run: |
-          # 配置 ossutil
-          ossutil config -i $ACCESS_KEY_ID -k $ACCESS_KEY_SECRET -e $ENDPOINT
+      # - name: Upload to Aliyun OSS
+      #   env:
+      #     ENDPOINT: ${{ secrets.ALIYUN_ENDPOINT }}
+      #     BUCKET: ${{ secrets.ALIYUN_BUCKET_NAME }}
+      #     ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
+      #     ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
+      #   run: |
+      #     # 配置 ossutil
+      #     ossutil config -i $ACCESS_KEY_ID -k $ACCESS_KEY_SECRET -e $ENDPOINT
 
-          # 递归上传整个 site 目录到 OSS
-          ossutil cp -r site/ oss://$BUCKET/ --update
+      #     # 递归上传整个 site 目录到 OSS
+      #     ossutil cp -r site/ oss://$BUCKET/ --update
           
       # 部署到 Vercel
       - name: Install Vercel CLI
