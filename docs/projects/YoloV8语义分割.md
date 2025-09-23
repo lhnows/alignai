@@ -17,27 +17,31 @@
 
 1. **创建Python虚拟环境** (推荐)  
    Bash  
-   python -m venv yolov8_env  
+   ```
+   conda create -n yolov8_env python=3.10
    # 激活环境  
    # Windows:  
-   .yolov8_envScriptsactivate  
+   conda activate yolov8_env  
    # Linux/macOS:  
-   source yolov8_env/bin/activate
-
+   conda activate yolov8_env  
+   ```
 2. 安装PyTorch  
    访问 PyTorch官网，根据你的CUDA版本选择合适的命令进行安装。例如：  
    Bash  
-   # 例如，使用CUDA 12.1  
+   # 例如，使用CUDA 12.1 
+   ``` 
    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-
+   ```
 3. **安装YOLOv8 (ultralytics)**  
    Bash  
+   ```
    pip install ultralytics
-
+   ```
 4. **安装标注工具LabelMe**  
    Bash  
+   ```
    pip install labelme
-
+   ```
 ---
 
 ### **第2步：数据标注**
@@ -46,9 +50,9 @@
 
 1. 启动LabelMe  
    在你的终端（激活了虚拟环境）中输入：  
-   Bash  
+   ```
    labelme
-
+   ```
 2. **标注流程**  
    * **打开图片**：点击 "Open Dir"，选择你存放所有待标注图片的文件夹。  
    * **创建多边形**：点击左侧工具栏的 "Create Polygons"。  
@@ -70,8 +74,9 @@ raw_data/
 ### **第3步：格式转换 (从 LabelMe JSON 到 YOLOv8 TXT)**
 
 YOLOv8分割任务需要的标签格式非常特殊：每个图片对应一个 .txt 文件，文件内容如下：  
+```
 <class_index> <x1_norm> <y1_norm> <x2_norm> <y2_norm> ...
-
+```
 * <class_index>: 类别索引，从0开始。  
 * <x_norm> <y_norm>: 物体轮廓上每个顶点的归一化坐标（值在0到1之间）。
 
@@ -79,6 +84,7 @@ YOLOv8分割任务需要的标签格式非常特殊：每个图片对应一个 .
 
 1. 创建项目文件夹结构  
    建议组织成这样：  
+   ```
    YOLOv8-Seg-Project/  
    ├── labelme_to_yolo.py   # 我们即将创建的转换脚本  
    ├── raw_data/            # 存放你用LabelMe标注好的 jpg 和 json  
@@ -89,7 +95,7 @@ YOLOv8分割任务需要的标签格式非常特殊：每个图片对应一个 .
        ├── labels/  
        │   ├── train/  
        │   └── val/
-
+   ```
 2. **编写 labelme_to_yolo.py 转换脚本**  
    Python  
 ```
@@ -252,8 +258,9 @@ names:
 
 * **使用命令行预测**  
   Bash  
+  ```
   yolo segment predict model=runs/segment/train/weights/best.pt source='path/to/your/test_image.jpg'
-
+  ```
   * model: 指向你训练好的 best.pt 模型。  
   * source: 可以是单张图片、整个文件夹或视频文件。
 
@@ -261,6 +268,7 @@ names:
 
 * **使用Python脚本预测**  
   Python  
+  ```
   from ultralytics import YOLO  
   import cv2
 
@@ -277,5 +285,5 @@ names:
   cv2.imshow("result", res_plotted)  
   cv2.waitKey(0)  
   cv2.destroyAllWindows()
-
+  ```
 至此，你已经完成了从数据标注到模型部署的全过程！祝你训练顺利！
