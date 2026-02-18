@@ -4,6 +4,8 @@ This repo will daily crawl arXiv papers about **cs.CV, cs.GR and cs.CL**, and us
 
 
 # Content
+[2026-02-18](Arxiv/2026-02-18.md)
+
 [2026-02-17](Arxiv/2026-02-17.md)
 
 [2026-02-16](Arxiv/2026-02-16.md)
